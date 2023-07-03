@@ -1,0 +1,7 @@
+{
+  "name": "VitalApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
