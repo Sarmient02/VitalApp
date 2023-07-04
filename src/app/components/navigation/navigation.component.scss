@@ -1,0 +1,40 @@
+ion-button {
+    text-transform: none;
+    height: 72px;
+    width: 80px;
+}
+  
+ion-tab-bar {
+    bottom: 20px;
+    position: relative;
+    border-radius: 25px;
+    width: 90%;
+    height: 72px;
+    margin: 0 auto;
+}
+  
+ion-tab-button {
+    --color: var(--ion-color-primary-tint);
+    --color-selected: var(--ion-color-primary-shade);
+
+    &::before {
+        background-color: transparent;
+        display: block;
+        content: "";
+        margin: 0 auto;
+        width: 20px;
+        height: 2px;
+    }
+
+    &.tab-selected::before {
+        background-color: var(--ion-color-shade);
+    }
+}
+
+.card-shadow{
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.toolbar-icons {
+    font-size: 32px;
+}

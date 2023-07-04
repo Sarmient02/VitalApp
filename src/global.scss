@@ -24,3 +24,9 @@
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
+
+/* Font */
+:root[mode=md] .inter{
+    --ion-font-family:  'Inter'!important;
+    font-family:  'Inter' !important;
+  }
