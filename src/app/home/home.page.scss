@@ -1,4 +1,16 @@
-ion-header {
-  box-shadow: none;
+ion-tab-bar {
+  bottom: 20px;
+  position: relative;
+  border-radius: 16px;
+  width: 90%;
+  height: 72px;
+  margin: 0 auto;
 }
 
+.card-shadow{
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.toolbar-icons {
+  font-size: 32px;
+}

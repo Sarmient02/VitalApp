@@ -13,39 +13,35 @@ const routes: Routes = [
   },
   {
     path: 'main-home',
-    loadChildren: () => import('./pages/main-user/home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./pages/main-user/main-home/main-home.module').then( m => m.MainHomePageModule)
+  },
+  {
+    path: 'main-contacts',
+    loadChildren: () => import('./pages/main-user/main-contacts/main-contacts.module').then( m => m.MainContactsPageModule)
+  },
+  {
+    path: 'main-control',
+    loadChildren: () => import('./pages/main-user/main-control/main-control.module').then( m => m.MainControlPageModule)
   },
   {
     path: 'support-home',
-    loadChildren: () => import('./pages/support-user/home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./pages/support-user/support-home/support-home.module').then( m => m.SupportHomePageModule)
   },
   {
-    path: 'list',
-    loadChildren: () => import('./pages/support-user/control/list/list.module').then( m => m.ListPageModule)
+    path: 'support-contacts',
+    loadChildren: () => import('./pages/support-user/support-contacts/support-contacts.module').then( m => m.SupportContactsPageModule)
   },
   {
-    path: 'add',
-    loadChildren: () => import('./pages/support-user/control/add/add.module').then( m => m.AddPageModule)
+    path: 'support-control',
+    loadChildren: () => import('./pages/support-user/support-control/support-control.module').then( m => m.SupportControlPageModule)
   },
   {
-    path: 'list',
-    loadChildren: () => import('./pages/main-user/control/list/list.module').then( m => m.ListPageModule)
+    path: 'support-tabs',
+    loadChildren: () => import('./pages/support-user/support-tabs/support-tabs.module').then( m => m.SupportTabsPageModule)
   },
   {
-    path: 'add',
-    loadChildren: () => import('./pages/main-user/control/add/add.module').then( m => m.AddPageModule)
-  },
-  {
-    path: 'view',
-    loadChildren: () => import('./pages/main-user/contacts/view/view.module').then( m => m.ViewPageModule)
-  },
-  {
-    path: 'list',
-    loadChildren: () => import('./pages/main-user/contacts/list/list.module').then( m => m.ListPageModule)
-  },
-  {
-    path: 'add',
-    loadChildren: () => import('./pages/main-user/contacts/add/add.module').then( m => m.AddPageModule)
+    path: 'main-tabs',
+    loadChildren: () => import('./pages/main-user/main-tabs/main-tabs.module').then( m => m.MainTabsPageModule)
   },
 ];
 

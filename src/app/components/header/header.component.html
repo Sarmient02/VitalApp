@@ -1,9 +1,17 @@
 <ion-toolbar class="toolbar-header card-shadow">
-  <ion-buttons slot="start">
+  <ng-container *ngIf="title === 'Inicio'; else diferente">
+    <ion-buttons slot="start">
       <ion-button color="primary" class="material-symbols-rounded toolbar-icons">settings</ion-button>
-  </ion-buttons>
+    </ion-buttons>
+  </ng-container>
+  <ng-template #diferente>
+    <ion-buttons slot="start">
+      <ion-button (click)="myBackButton()" color="primary" class="material-symbols-rounded toolbar-icons">arrow_back</ion-button>
+    </ion-buttons>
+  </ng-template>
+  
   <ion-title color="primary" class="toolbar-title inter">
-    Inicio
+    {{title}}
   </ion-title>
   <ion-buttons slot="end">
       <ion-button color="primary" class="material-symbols-rounded toolbar-icons">help_outline</ion-button>
