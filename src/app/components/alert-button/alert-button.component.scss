@@ -1,14 +1,14 @@
 span {
-    font-size: 60px;
+    font-size: 8vh;
     font-weight: 700;
 }
 
-ion-button {
-    width: 80%;
-    min-height: 300px;
-    max-height: 500px;
-    text-transform: none;
-}
+// ion-button {
+//     width: 80%;
+//     min-height: 300px;
+//     max-height: 500px;
+//     text-transform: none;
+// }
 
 .container {
     text-align: center;
@@ -17,4 +17,37 @@ ion-button {
     right: 0;
     top: 50%;
     transform: translateY(-50%);
+}
+
+ion-button[shape=circle] {
+    --border-radius: 50%;
+    width: 37.5vh;
+    height: 37.5vh;
+}
+
+.layer1,
+.layer2 {
+    position: absolute;
+    z-index: -1;
+    border-radius: 50%;
+}
+
+.layer1 {
+    width: 40vh;
+    height: 40vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ff0000;
+    opacity: 0.5;
+}
+
+.layer2 {
+    width: 42.5vh;
+    height: 42.5vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ff0000;
+    opacity: 0.3;
 }
