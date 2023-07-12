@@ -8,12 +8,15 @@ import { MainContactsPageRoutingModule } from './main-contacts-routing.module';
 
 import { MainContactsPage } from './main-contacts.page';
 
+import { SharedModule } from '../../../shared/shared.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    MainContactsPageRoutingModule
+    MainContactsPageRoutingModule,
+    SharedModule
   ],
   declarations: [MainContactsPage]
 })
