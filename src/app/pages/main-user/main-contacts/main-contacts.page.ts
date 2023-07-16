@@ -52,7 +52,7 @@ export class MainContactsPage implements OnInit {
         console.log("phone: ", this.contact.contact?.phones[0]?.number);
 
         this.router.navigate(
-        ['main-contact-add'],
+        ['main-tabs/contacts/add'],
         { queryParams: {name: this.contactItems.name, phone: this.contactItems.phone}
       }
         )

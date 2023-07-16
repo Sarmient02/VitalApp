@@ -8,10 +8,6 @@ const routes: Routes = [
   {
     path: '',
     component: MainContactsPage
-  },
-  {
-    path: 'add',
-    component: MainContactAddPage
   }
 ];
 

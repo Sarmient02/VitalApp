@@ -25,6 +25,10 @@ const routes: Routes = [
         loadChildren: () => import('../main-control/main-control.module').then( m => m.MainControlPageModule)
       },
       {
+        path: 'contacts/add',
+        loadChildren: () => import('../main-contact-add/main-contact-add.module').then( m => m.MainContactAddPageModule)
+      },
+      {
         path: '',
         redirectTo: '/main-tabs/home',
         pathMatch: 'full'
