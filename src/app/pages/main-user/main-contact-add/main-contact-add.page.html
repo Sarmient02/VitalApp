@@ -3,5 +3,17 @@
 </ion-header>
 
 <ion-content color = "light">
-  
+  <div class="container">
+    <ion-grid>
+      <ion-row>
+        Nombre: {{contact?.name?.display}}
+      </ion-row>
+      <ion-row>
+        Teléfono: {{contact?.phones[0]?.number}}
+      </ion-row>
+      <ion-row>
+        {{contact | json}}
+      </ion-row>
+    </ion-grid>
+  </div>>
 </ion-content>

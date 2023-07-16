@@ -9,6 +9,8 @@ import { Contacts } from '@capacitor-community/contacts';
 })
 export class MainContactsPage implements OnInit {
 
+  contact: any;
+
   constructor(private router: Router) { }
 
   ngOnInit() {
@@ -16,5 +18,17 @@ export class MainContactsPage implements OnInit {
 
   goToPage(pageName: string){
     this.router.navigate([`${pageName}`])
+  }
+
+  async pickContact() {
+    const picked_contact = await Contacts.pickContact({
+      projection: {
+        name: true,
+        phones: true
+      }
+    });
+    this.contact = picked_contact;
+    //return picked_contact;
+    this.router.navigate(['add'])
   }
 }
