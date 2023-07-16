@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -9,9 +8,10 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class MainContactAddPage implements OnInit {
 
-  contact: any;
-  name!: string;
-  phone!: number;
+  contact: any = {
+    name: '',
+    phone: ''
+  };
   
   constructor(
     private route: ActivatedRoute
@@ -19,14 +19,10 @@ export class MainContactAddPage implements OnInit {
 
   ngOnInit() {
     this.route.queryParams.subscribe((params) => {
-      console.log(params['name']);
-      
-      const name = params['name'];
-      const phone = params['phone'];
-      if (name && phone) {
-        this.name = name;
-        this.phone = phone;
-      }
+      console.log("add-name: ", params['name']);
+
+      this.contact.name = params['name'];
+      this.contact.phone = params['phone'];
     })
   }
 }

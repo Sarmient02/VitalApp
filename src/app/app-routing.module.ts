@@ -24,6 +24,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/main-user/main-contacts/main-contacts.module').then( m => m.MainContactsPageModule)
   },
   {
+    path: 'main-contact-add',
+    loadChildren: () => import('./pages/main-user/main-contact-add/main-contact-add.module').then( m => m.MainContactAddPageModule)
+  },
+  {
     path: 'main-control',
     loadChildren: () => import('./pages/main-user/main-control/main-control.module').then( m => m.MainControlPageModule)
   },

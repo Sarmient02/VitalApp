@@ -12,6 +12,10 @@ import { Contacts } from '@capacitor-community/contacts'
 export class MainContactsPage implements OnInit {
 
   contact: any;
+  contactItems = {
+    name: '',
+    phone: ''
+  };
 
   contacts: Contacto[] = [];
 
@@ -27,26 +31,34 @@ export class MainContactsPage implements OnInit {
   goToPage(pageName: string){
     this.router.navigate([`${pageName}`])
   }
-
-  getContact() {
-    this.contact = this.pickContact();
-
-    console.log("name: ", this.contact?.name.display);
-
-    this.router.navigate(
-      ['/add'],
-      { queryParams: {name: this.contact?.name.display, phone: this.contact?.phones[0].number} }
-    )
-  }
-
+  
   async pickContact() {
-    const picked_contact = await Contacts.pickContact({
-      projection: {
-        name: true,
-        phones: true
+    try {
+      const permission = await Contacts.requestPermissions();
+      if (!permission?.contacts) return;
+      else if (permission?.contacts == "granted") {
+        const result = await Contacts.pickContact({
+          projection: {
+            name: true,
+            phones: true
+          }
+        })
+        this.contact = result;
+
+        this.contactItems.name = this.contact.contact?.name.display;
+        this.contactItems.phone = this.contact.contact?.phones[0]?.number;
+
+        console.log("name: ", this.contact.contact?.name.display);
+        console.log("phone: ", this.contact.contact?.phones[0]?.number);
+
+        this.router.navigate(
+        ['main-contact-add'],
+        { queryParams: {name: this.contactItems.name, phone: this.contactItems.phone}
       }
-    });
-    //this.contact = picked_contact;
-    return picked_contact;
+        )
+      }
+    } catch(e) {
+      console.log(e);
+    }
   }
 }
