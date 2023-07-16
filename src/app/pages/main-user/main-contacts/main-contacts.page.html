@@ -3,7 +3,7 @@
 </ion-header>
 
 <ion-content color = "light">
-  <ion-button class = "new-contact-button" [routerLink]="['add']">
+  <ion-button class = "new-contact-button" (click) = "getContact()">
     <span class="material-symbols-rounded">person_add</span>
     &nbsp;
     Añadir Contacto

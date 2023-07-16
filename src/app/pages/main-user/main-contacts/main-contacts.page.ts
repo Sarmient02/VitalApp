@@ -28,6 +28,17 @@ export class MainContactsPage implements OnInit {
     this.router.navigate([`${pageName}`])
   }
 
+  getContact() {
+    this.contact = this.pickContact();
+
+    console.log("name: ", this.contact?.name.display);
+
+    this.router.navigate(
+      ['/add'],
+      { queryParams: {name: this.contact?.name.display, phone: this.contact?.phones[0].number} }
+    )
+  }
+
   async pickContact() {
     const picked_contact = await Contacts.pickContact({
       projection: {
@@ -35,8 +46,7 @@ export class MainContactsPage implements OnInit {
         phones: true
       }
     });
-    this.contact = picked_contact;
-    //return picked_contact;
-    this.router.navigate(['add'])
+    //this.contact = picked_contact;
+    return picked_contact;
   }
 }
