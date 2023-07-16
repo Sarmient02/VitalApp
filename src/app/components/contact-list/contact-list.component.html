@@ -1,0 +1,29 @@
+<ion-list class="contact-list card-shadow" lines="full">
+  <ion-item href="" *ngFor = "let contact of contactos">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="auto">
+          <ion-img class="contact-image" src="assets/image/edilberto.png"></ion-img>
+        </ion-col>
+
+        <ion-col>
+          <ion-row class="contact-name">
+            {{contact.name}}
+          </ion-row>
+          <ion-row>
+            <ion-col class="contact-nickname" size=4>
+              {{contact.nickname}}
+            </ion-col>
+            <ion-col class="contact-phone">
+              {{contact.phone}}
+            </ion-col>
+          </ion-row>
+        </ion-col>
+
+        <ion-col class="contact-type" size=1.5>
+          <ion-img src="assets/icon/contact-type/confianza_1.png"></ion-img>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item>
+</ion-list>

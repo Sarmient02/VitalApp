@@ -1,3 +1,13 @@
 <ion-header [translucent]="true">
   <app-header [title]="'Contactos'"></app-header>
 </ion-header>
+
+<ion-content color = "light">
+  <ion-button class = "new-contact-button" (click) = "goToPage('main-contact-add')">
+    <span class="material-symbols-rounded">person_add</span>
+    &nbsp;
+    Añadir Contacto
+  </ion-button>
+
+  <app-contact-list></app-contact-list>
+</ion-content>

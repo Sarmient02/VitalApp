@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Contacts } from '@capacitor-community/contacts';
 
 @Component({
   selector: 'app-main-contacts',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainContactsPage implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
+  goToPage(pageName: string){
+    this.router.navigate([`${pageName}`])
+  }
 }
