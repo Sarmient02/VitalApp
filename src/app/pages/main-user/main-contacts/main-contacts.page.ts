@@ -26,6 +26,10 @@ export class MainContactsPage implements OnInit {
 
   ngOnInit() {
     this.contacts = this.contactsService.getContacts();
+
+    this.contactsService.contactosChanged.subscribe((contactos) => {
+      this.contacts = contactos;
+    });
   }
 
   goToPage(pageName: string){
