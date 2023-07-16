@@ -1,0 +1,21 @@
+<div class="container card-shadow">
+  <div class="monitors">
+    <span class="spacer"></span>
+    <div class="latest">
+      <i class="material-symbols-rounded toolbar-icons">keyboard_double_arrow_up</i> <span class="inter">{{latestSystolic | number: '1.0-0'}}</span>
+    </div>
+    <span class="spacer"></span>
+    <div class="heartbeat">
+      <i class="material-symbols-rounded toolbar-icons">ecg_heart</i> <span class="inter">{{latestHeartbeat | number: '1.0-0'}} ppm</span>
+    </div>
+    <span class="spacer"></span>
+    <div class="latest">
+      <i class="material-symbols-rounded toolbar-icons">keyboard_double_arrow_down</i> <span class="inter">{{latestDiastolic | number: '1.0-0'}}</span>
+    </div>
+    <span class="spacer"></span>
+  </div>
+  <span class="spacer"></span>
+  <div>
+    <canvas id="myChart"></canvas>
+  </div>
+</div>

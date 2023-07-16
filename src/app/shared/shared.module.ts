@@ -4,12 +4,14 @@ import { HeaderComponent } from '../components/header/header.component';
 import { IonicModule } from '@ionic/angular';
 import { AlertButtonComponent } from '../components/alert-button/alert-button.component';
 import { ContactListComponent } from '../components/contact-list/contact-list.component';
+import { MonitorComponent } from '../components/monitor/monitor.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     AlertButtonComponent,
-    ContactListComponent
+    ContactListComponent,
+    MonitorComponent
   ],
   imports: [
     IonicModule,
@@ -18,7 +20,8 @@ import { ContactListComponent } from '../components/contact-list/contact-list.co
   exports: [
     HeaderComponent,
     AlertButtonComponent,
-    ContactListComponent
+    ContactListComponent,
+    MonitorComponent
   ]
 })
 export class SharedModule { }
