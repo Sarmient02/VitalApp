@@ -1,0 +1,49 @@
+.container {
+    max-width: 90%;
+    margin: 10% auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: 25px;
+    height: fit-content;
+    padding: 2%;
+    background-color: #ffffff;
+    align-items: center;
+}
+
+.card-shadow{
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.contact-image{
+    border-radius: 50%;
+    overflow: hidden;
+    width: 50%;
+    height: auto;
+}
+
+.text-row{
+    width: 100%;
+    text-align: left;
+    font-size: large;
+    font-weight: bold;
+}
+
+.grid-selector{
+    width: 100%;
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+}
+
+.material-symbols-rounded{
+    color: gray;
+    font-size: xx-large;
+}
+
+.type-button{
+    aspect-ratio: 1 / 1;
+    height: 80%;
+    
+    --ion-color-primary: rgb(218, 218, 218);
+    --border-radius: 25%;
+}

@@ -8,21 +8,13 @@ import { Subject } from 'rxjs';
 export class ContactsService {
 
   contacts: Contacto[] = [
-    {id: 1, name: 'Juan Perez', nickname: 'xd', phone: 123456789, type: 'emergency'},
-    {id: 2, name: 'Pedro Garcia', nickname: 'xd', phone: 987654321, type: 'support'},
-    {id: 3, name: 'Maria Lopez', nickname: 'xd', phone: 123456789, type: 'emergency'},
-    {id: 4, name: 'Ana Gonzalez', nickname: 'xd', phone: 987654321, type: 'support'},
-    {id: 5, name: 'Luis Rodriguez', nickname: 'xd', phone: 123456789, type: 'emergency'},
-    {id: 6, name: 'Rosa Sanchez', nickname: 'xd', phone: 987654321, type: 'support'},
-    {id: 7, name: 'Carlos Fernandez', nickname: 'xd', phone: 123456789, type: 'emergency'},
-    {id: 8, name: 'Sara Martinez', nickname: 'xd', phone: 987654321, type: 'support'},
-    {id: 9, name: 'Javier Gomez', nickname: 'xd', phone: 123456789, type: 'emergency'},
-    {id: 10, name: 'Laura Ruiz', nickname: 'xd', phone: 987654321, type: 'support'},
+    {id: 1, name: 'Juan Perez', nickname: 'xd', phone: "123456789", type: 'emergency'},
+    {id: 2, name: 'Pedro Garcia', nickname: 'xd', phone: "987654321", type: 'support'},
   ];
 
   contactosChanged = new Subject<Contacto[]>();
 
-  ID = 10;
+  ID = 2;
 
   constructor() { }
 
@@ -31,6 +23,7 @@ export class ContactsService {
   }
 
   addContact(contact: Contacto): void {
+    console.log("creating new contact: ", contact)
     contact.id = this.ID++;
     this.contacts.push(contact);
     this.contactosChanged.next(this.contacts);

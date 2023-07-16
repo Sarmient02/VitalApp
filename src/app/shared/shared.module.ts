@@ -5,13 +5,15 @@ import { IonicModule } from '@ionic/angular';
 import { AlertButtonComponent } from '../components/alert-button/alert-button.component';
 import { ContactListComponent } from '../components/contact-list/contact-list.component';
 import { MonitorComponent } from '../components/monitor/monitor.component';
+import { ContactInfoComponent } from '../components/contact-info/contact-info.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     AlertButtonComponent,
     ContactListComponent,
-    MonitorComponent
+    MonitorComponent,
+    ContactInfoComponent
   ],
   imports: [
     IonicModule,
@@ -21,7 +23,8 @@ import { MonitorComponent } from '../components/monitor/monitor.component';
     HeaderComponent,
     AlertButtonComponent,
     ContactListComponent,
-    MonitorComponent
+    MonitorComponent,
+    ContactInfoComponent
   ]
 })
 export class SharedModule { }

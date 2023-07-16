@@ -2,7 +2,7 @@ export interface Contacto {
     id: number;
     name: string;
     nickname: string;
-    phone: number;
+    phone: string;
     type: string;
   }
   
