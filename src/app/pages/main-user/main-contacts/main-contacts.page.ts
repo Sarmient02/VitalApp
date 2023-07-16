@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ContactsService } from 'src/app/services/contacts.service';
 import { Contacto } from 'src/app/services/contacto';
+import { Contacts } from '@capacitor-community/contacts'
 
 @Component({
   selector: 'app-main-contacts',
@@ -12,7 +13,7 @@ export class MainContactsPage implements OnInit {
 
   contact: any;
 
-  constructor(private router: Router) { }
+  contacts: Contacto[] = [];
 
   constructor(
     private router: Router,
