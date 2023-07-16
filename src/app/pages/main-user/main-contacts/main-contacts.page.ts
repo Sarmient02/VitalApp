@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Contacts } from '@capacitor-community/contacts';
+import { ContactsService } from 'src/app/services/contacts.service';
+import { Contacto } from 'src/app/services/contacto';
 
 @Component({
   selector: 'app-main-contacts',
@@ -13,7 +14,13 @@ export class MainContactsPage implements OnInit {
 
   constructor(private router: Router) { }
 
+  constructor(
+    private router: Router,
+    private contactsService: ContactsService
+    ) { }
+
   ngOnInit() {
+    this.contacts = this.contactsService.getContacts();
   }
 
   goToPage(pageName: string){

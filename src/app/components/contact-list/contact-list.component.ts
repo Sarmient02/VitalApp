@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Contacto } from 'src/app/services/contacto';
 import { ContactoService } from 'src/app/services/contacto.service';
 
@@ -8,17 +8,13 @@ import { ContactoService } from 'src/app/services/contacto.service';
   styleUrls: ['./contact-list.component.scss'],
 })
 export class ContactListComponent  implements OnInit {
-  contactos: Contacto[] = [];
+
+  @Input() contactos: Contacto[] = [];
 
   constructor(private contactoService: ContactoService) { }
 
   ngOnInit(): void {
-    this.getContactos();
-  }
-
-  getContactos(): void {
-    this.contactoService.getContactos()
-    .subscribe(contactos => this.contactos = contactos);
+    
   }
 
 }
