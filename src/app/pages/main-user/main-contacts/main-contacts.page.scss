@@ -2,20 +2,21 @@ ion-header {
     box-shadow: none;
 }
 
-.new-contact-button {
+.btn {
     margin-left: auto;
     margin-right: auto;
     border-radius: 25px;
-    max-width: 90%;
-    height: 8%;
+    max-width: 65%;
     margin-top: 5%;
+    height: 6vh;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     text-transform: none;
     text-size-adjust: 80%;
-
     --border-radius: 25px;
+    width: 90%;
+    background-color: var(--ion-color-primary);
 }
 
 .inter {

@@ -8,7 +8,7 @@ import { Subject } from 'rxjs';
 export class ContactsService {
 
   contacts: Contacto[] = [
-    {id: 1, name: 'Juan Perez', nickname: 'xd', phone: "123456789", type: 'emergency'},
+    {id: 1, name: 'Juan Perez', nickname: 'xdadasdsadsadasdsadsa', phone: "+57 300 8001221", type: 'emergency'},
     {id: 2, name: 'Pedro Garcia', nickname: 'xd', phone: "987654321", type: 'support'},
   ];
 

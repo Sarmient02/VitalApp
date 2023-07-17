@@ -6,12 +6,12 @@
     <ion-label>
       <h2>{{contact.name}}</h2>
       <div class="subtitulo">
-        <span class="italic">{{contact.nickname}}</span>
+        <span class="nick">{{contact.nickname}}</span>
         <div class="separator"></div>
-        <span>{{contact.phone}}</span>
+        <span class="phone">{{contact.phone}}</span>
       </div>
     </ion-label>
-    <div slot="end">
+    <div class="icono">
       <span *ngIf="contact.type === 'support'" class="material-symbols-rounded toolbar-icons support">diversity_1</span>
       <span *ngIf="contact.type === 'emergency'" class="material-symbols-rounded toolbar-icons emergency" >medical_services</span>
     </div>

@@ -38,7 +38,7 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    width: 60%;
+    width: 100%;
 }
 
 .separator {
@@ -61,6 +61,21 @@ ion-label h2 {
     font-weight: bold;
   }
 
-  ion-label .italic {
+  ion-label .nick {
     font-style: italic;
+    max-width: 35%;
   }
+
+  ion-label span {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: 14px;
+  }
+
+    ion-label .phone {
+        max-width: 65%;
+    }
+
+    .icono {
+        margin-left: 5%;
+    }
