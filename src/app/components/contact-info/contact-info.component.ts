@@ -85,7 +85,15 @@ export class ContactInfoComponent  implements OnInit {
   }
 
   clickedDeleteContact(): boolean{
-    this.contactsService.deleteContact(this.contact.id);
+    this.contactoCreado = {
+      id: this.contact.id,
+      name: this.contact.name,
+      nickname: this.newContactNickname,
+      phone: this.contact.phone,
+      type: this.newContactType
+    };
+    console.log(this.contactoCreado);
+    this.contactsService.deleteContact(this.contactoCreado.id);
     return true;
   }
 }
