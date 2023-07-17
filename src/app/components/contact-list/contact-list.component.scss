@@ -32,3 +32,35 @@
     border-radius: 50%;
     overflow: hidden;
 }
+
+
+.subtitulo {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 60%;
+}
+
+.separator {
+    margin: 0 auto;
+}
+
+.toolbar-icons {
+    font-size: 32px;
+}
+
+.support {
+    color: var(--ion-color-secondary);
+}
+
+.emergency {
+    color: var(--ion-color-danger);
+}
+
+ion-label h2 {
+    font-weight: bold;
+  }
+
+  ion-label .italic {
+    font-style: italic;
+  }
