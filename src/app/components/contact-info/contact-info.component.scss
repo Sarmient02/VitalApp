@@ -14,11 +14,18 @@
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
 
+.inputs {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    margin: 2% 0;
+}
+
 .contact-image{
     border-radius: 50%;
     overflow: hidden;
-    width: 50%;
-    height: auto;
+    width: 100%;
+    height: 15vh;
 }
 
 .text-row{
@@ -43,7 +50,65 @@
 .type-button{
     aspect-ratio: 1 / 1;
     height: 80%;
-    
     --ion-color-primary: rgb(218, 218, 218);
     --border-radius: 25%;
 }
+
+ion-item {
+    --border-style: none;
+}
+
+ion-item {
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    width: 90%;
+}
+
+ion-item i {
+    margin-right: 5%;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2% auto;
+}
+
+ion-input {
+    font-weight: 900;
+    font-size: 22px;
+}
+
+ion-input[disabled] {
+    --color: black;
+  }
+  
+  .spacer{
+    margin: auto;
+  }
+
+  .types {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 90%;
+    margin-bottom: 4%;
+  }
+
+  .type-title {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    display: block;
+    color: #5e5e5e;
+  }
+
+  .material-symbols-rounded.diversity-icon.active {
+    color: var(--ion-color-secondary);
+  }
+  
+  .material-symbols-rounded.medical-icon.active {
+    color: var(--ion-color-danger);
+  }
+  

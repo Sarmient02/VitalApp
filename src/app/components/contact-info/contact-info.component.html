@@ -1,44 +1,47 @@
 <div class="container card-shadow">
-  <ion-img class="contact-image" src="assets/image/edilberto_large.png"></ion-img>
+  <div>
+    <ion-img class="contact-image" src="assets/image/edilberto_large.png"></ion-img>
+  </div>
 
-  <br>
-
-  <ion-item class = "text-row" lines="none">
-    <span slot = "start" class="material-symbols-rounded">account_circle</span>
-    <ion-label class="ion-text-wrap">
-      {{contact.name}}
-    </ion-label>
-  </ion-item>
-
-  <ion-item class = "text-row" lines="none">
-    <span slot = "start" class="material-symbols-rounded">call</span>
-    <ion-label class="ion-text-wrap">
-      {{contact.phone}}
-    </ion-label>
-  </ion-item>
-
-  <ion-item class = "text-row" lines="none">
-    <span slot = "start" class="material-symbols-rounded">badge</span>
-    <ion-input placeholder="Ingresa un apodo" [value]="newContactNickname" (input)="onNameInput($event)"></ion-input>
-  </ion-item>
+  <div class="inputs">
+    <div class="row">
+      <ion-item>
+        <i class="material-symbols-rounded">account_circle</i>
+        <ion-input class="inter" type="text" placeholder="{{contact.name}}" readonly></ion-input>
+      </ion-item>
+    </div>
+    <div class="row">
+      <ion-item>
+        <i class="material-symbols-rounded">call</i>
+        <ion-input class="inter" type="number" placeholder="{{contact.phone}}" readonly></ion-input>
+      </ion-item>
+    </div>
+    <div class="row">
+      <ion-item>
+        <i class="material-symbols-rounded">badge</i>
+        <ion-input class="inter" type="text" placeholder="Apodo" [value]="newContactNickname" (input)="onNameInput($event)"></ion-input>
+      </ion-item>
+    </div>
+  </div>
   
-  <br>
-
-  <ion-item class="grid-selector" lines="none">
-    <ion-grid>
-      <ion-row>
-        <ion-col>Tipo de Contacto</ion-col>
-        <ion-col>
-          <ion-button class="type-button" (click)="clickedConfianza()">
-            <ion-img [src]="confianzaImage"></ion-img>
-          </ion-button>
-        </ion-col>
-        <ion-col>
-          <ion-button class="type-button" (click)="clickedMedico()">
-            <ion-img [src]="medicoImage"></ion-img>
-          </ion-button>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-item>
+  <div class="types">
+    <div style="width: 35%;">
+      <span class="type-title">Tipo de<br>Contacto</span>
+    </div>
+    <div class="spacer"></div>
+    <div style="display: flex; justify-content: space-between;">
+      <div>
+        <ion-button class="type-button" (click)="clickedConfianza()">
+          <i slot="icon-only" class="material-symbols-rounded diversity-icon" [ngClass]="{'active': newContactType === 'support'}">diversity_1</i>
+        </ion-button>
+      </div>
+      <div style="margin-left: 5%;">
+        <ion-button class="type-button" (click)="clickedMedico()">
+          <i slot="icon-only" class="material-symbols-rounded medical-icon" [ngClass]="{'active': newContactType === 'emergency'}">medical_services</i>
+        </ion-button>
+      </div>
+    </div>
+  </div>
+  
+  
 </div>
