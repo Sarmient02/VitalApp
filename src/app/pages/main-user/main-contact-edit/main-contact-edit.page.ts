@@ -42,4 +42,17 @@ export class MainContactEditPage implements OnInit {
       this.route.navigate(['main-tabs/contacts']);
     }
   }
+
+  async deletePressedContact(): Promise<void>{
+    if(this.contactInfo.clickedDeleteContact()){
+      const alert = await this.alertController.create({
+        header:"¡Excelente!",
+        message:"Los cambios han sido guardados exitosamente.",
+        buttons: ['OK']
+      });
+      await alert.present();
+      const { role } = await alert.onDidDismiss();
+      this.route.navigate(['main-tabs/contacts']);
+    }
+  }
 }

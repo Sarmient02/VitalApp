@@ -40,7 +40,7 @@ ion-button::part(native) span.button-inner {
     margin-right: auto;
     border-radius: 25px;
     max-width: 90%;
-    height: 6vh;
+    height: 12vw;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -80,8 +80,8 @@ ion-input {
     border-radius: 25px;
     margin: 1% 0;
     height: 50%;
-    --padding-start: 14px;
-    --padding-end: 14px;
+    --padding-start: 15px;
+    --padding-end: 15px;
 }
 
 .inter {

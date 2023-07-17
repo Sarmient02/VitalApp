@@ -35,18 +35,12 @@ export class ContactsService {
   }
 
   updateContact(id: number, contact: Contacto): void {
-    const index = this.contacts.findIndex(contact => contact.id === id);
-    if (index !== -1) {
-      this.contacts[index] = {...contact, id};
-    }
+    this.contacts[id-1] = {...contact};
     this.contactosChanged.next(this.contacts);
   }
 
   deleteContact(id: number): void {
-    const index = this.contacts.findIndex(contact => contact.id === id);
-    if (index !== -1) {
-      this.contacts.splice(index, 1);
-    }
+    this.contacts.splice(id-1, 1);
   }
 
 }

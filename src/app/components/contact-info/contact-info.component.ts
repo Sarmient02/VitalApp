@@ -79,7 +79,13 @@ export class ContactInfoComponent  implements OnInit {
       phone: this.contact.phone,
       type: this.newContactType
     };
+    console.log(this.contactoCreado);
     this.contactsService.updateContact(this.contactoCreado.id, this.contactoCreado);
+    return true;
+  }
+
+  clickedDeleteContact(): boolean{
+    this.contactsService.deleteContact(this.contact.id);
     return true;
   }
 }
