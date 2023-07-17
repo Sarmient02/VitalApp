@@ -44,15 +44,28 @@ export class MainContactEditPage implements OnInit {
   }
 
   async deletePressedContact(): Promise<void>{
-    if(this.contactInfo.clickedDeleteContact()){
       const alert = await this.alertController.create({
-        header:"¡Excelente!",
-        message:"Los cambios han sido guardados exitosamente.",
-        buttons: ['OK']
+        header:"Eliminar contacto",
+        message:"¿Estás seguro de que deseas eliminar este contacto?",
+        buttons: [
+          {
+            text: 'Cancelar',
+            role: 'cancel',
+            handler: () => {
+              console.log('Cancel clicked');
+            }
+          },
+          {
+            text: 'Aceptar',
+            handler: () => {
+              console.log('Aceptar clicked');
+              this.contactInfo.clickedDeleteContact()
+              this.route.navigate(['main-tabs/contacts']);
+            }
+          }
+        ]
       });
       await alert.present();
-      const { role } = await alert.onDidDismiss();
-      this.route.navigate(['main-tabs/contacts']);
-    }
   }
+
 }
