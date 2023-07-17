@@ -1,10 +1,10 @@
 ion-tab-bar {
-    bottom: 20px;
     position: relative;
     border-radius: 16px;
     width: 90%;
     height: 72px;
     margin: 0 auto;
+    margin-bottom: 20px;
   }
   
   .card-shadow{
@@ -14,3 +14,7 @@ ion-tab-bar {
   .toolbar-icons {
     font-size: 32px;
   }
+
+ion-tabs{
+  bottom: 2vh;
+}
