@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { Contacto } from '../../services/contacto';
 import { ContactsService } from '../../services/contacts.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-contact-info',
@@ -13,7 +14,8 @@ export class ContactInfoComponent  implements OnInit {
   contact: any = {
     name: '',
     phone: '',
-    type: ''
+    type: '',
+    nickname: ''
   };
 
 
@@ -24,9 +26,18 @@ export class ContactInfoComponent  implements OnInit {
   confianzaImage: string = "assets/icon/contact-type/confianza_1_large_gray.png";
   medicoImage: string = "assets/icon/contact-type/medical_1_large_gray.png";
 
-  constructor(private contactsService: ContactsService) { }
+  constructor(private contactsService: ContactsService,
+    private route: ActivatedRoute) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      this.contact.name = params["name"];
+      this.contact.phone = params["phone"];
+      this.contact.type = params["type"];
+      this.contact.nickname = params["nickname"];
+      this.newContactNickname = params["nickname"];
+    })
+  }
 
   onNameInput(event: Event){
     const inputElement = event.target as HTMLInputElement;

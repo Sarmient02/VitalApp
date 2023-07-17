@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <app-header [title]="'Contacto'"></app-header>
+</ion-header>
+
+<ion-content color = "light">
+  <app-contact-info [contact]="contact"></app-contact-info>
+
+  <ion-row class="action-buttons">
+    <ion-col>
+      <ion-button id="add-contact-button" class = "add-contact-button">
+        <span class="material-symbols-rounded">save_as</span>
+        &nbsp;
+        Guardar
+      </ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button color="danger" id="add-contact-button" class = "add-contact-button">
+        <span class="material-symbols-rounded">delete</span>
+        &nbsp;
+        Eliminar
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-content>

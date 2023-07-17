@@ -1,0 +1,24 @@
+.add-contact-button{
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 25px;
+    max-width: 90%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: none;
+    text-size-adjust: 100%;
+    font-size: large;
+    font-weight: bold;
+
+    --border-radius: 25px;
+}
+
+.material-symbols-rounded{
+    font-size: xx-large;
+}
+
+.action-buttons{
+    height: 12%;
+}

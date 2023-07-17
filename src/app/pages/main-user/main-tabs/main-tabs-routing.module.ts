@@ -21,6 +21,10 @@ const routes: Routes = [
         loadChildren: () => import('../main-contact-add/main-contact-add.module').then( m => m.MainContactAddPageModule)
       },
       {
+        path: 'contacts/edit',
+        loadChildren: () => import('../main-contact-edit/main-contact-edit.module').then( m => m.MainContactEditPageModule)
+      },
+      {
         path: 'control',
         loadChildren: () => import('../main-control/main-control.module').then( m => m.MainControlPageModule)
       },

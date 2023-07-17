@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ContactInfoComponent } from 'src/app/components/contact-info/contact-info.component';
 
 @Component({
@@ -9,6 +9,8 @@ import { ContactInfoComponent } from 'src/app/components/contact-info/contact-in
 })
 export class MainContactAddPage implements OnInit {
 
+  public alertButtons = ["OK"];
+
   @ViewChild(ContactInfoComponent) 
   contactInfo!: ContactInfoComponent;
 
@@ -16,9 +18,16 @@ export class MainContactAddPage implements OnInit {
     name: '',
     phone: ''
   };
+
+  buttonColor: string = "primary";
+  buttonTextColor: string = "";
+  buttonIcon: string = "person_add";
+  buttonText: string = "Añadir Contacto";
+  hasBeenAdded: boolean = false;
   
   constructor(
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -31,6 +40,16 @@ export class MainContactAddPage implements OnInit {
   }
 
   clickedAddContact(): void{
-    this.contactInfo.clickedAddContact();
+    if (this.hasBeenAdded == false){
+      this.hasBeenAdded = true;
+      this.contactInfo.clickedAddContact();
+      this.buttonColor = "success";
+      this.buttonIcon = "how_to_reg";
+      this.buttonText = "Contacto Añadido";
+    }
+  }
+
+  sendToContacts(){
+    this.router.navigate(['main-tabs/contacts']);
   }
 }

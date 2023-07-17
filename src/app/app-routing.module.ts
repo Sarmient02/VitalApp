@@ -28,6 +28,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/main-user/main-contact-add/main-contact-add.module').then( m => m.MainContactAddPageModule)
   },
   {
+    path: 'main-contact-edit',
+    loadChildren: () => import('./pages/main-user/main-contact-edit/main-contact-edit.module').then( m => m.MainContactEditPageModule)
+  },
+  {
     path: 'main-control',
     loadChildren: () => import('./pages/main-user/main-control/main-control.module').then( m => m.MainControlPageModule)
   },
@@ -55,6 +59,11 @@ const routes: Routes = [
     path: 'main-contact-add',
     loadChildren: () => import('./pages/main-user/main-contact-add/main-contact-add.module').then( m => m.MainContactAddPageModule)
   },
+  {
+    path: 'main-contact-edit',
+    loadChildren: () => import('./pages/main-user/main-contact-edit/main-contact-edit.module').then( m => m.MainContactEditPageModule)
+  },
+
 
 ];
 

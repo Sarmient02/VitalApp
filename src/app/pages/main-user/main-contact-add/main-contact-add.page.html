@@ -4,9 +4,18 @@
 
 <ion-content color = "light">
   <app-contact-info [contact]="contact"></app-contact-info>
-  <ion-button class = "add-contact-button" (click)="clickedAddContact()">
-    <span class="material-symbols-rounded">person_add</span>
+  <ion-button id="add-contact-button" [color]="buttonColor" class = "add-contact-button" (click)="clickedAddContact()">
+    <span class="material-symbols-rounded">{{buttonIcon}}</span>
     &nbsp;
-    Añadir Contacto
+    {{buttonText}}
   </ion-button>
+
+  <ion-alert
+    trigger="add-contact-button"
+    header="¡Excelente!"
+    message="El contacto ha sido añadido exitosamente."
+    [buttons]="alertButtons"
+    (didDismiss)="sendToContacts()"
+  >
+  </ion-alert>
 </ion-content>
