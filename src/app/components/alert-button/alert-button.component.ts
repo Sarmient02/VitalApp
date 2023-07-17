@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-alert-button',
@@ -7,8 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AlertButtonComponent  implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router,
+  ) { }
 
   ngOnInit() {}
+
+  goToAlert(){
+    this.router.navigate(['home/alert']);
+  }
 
 }

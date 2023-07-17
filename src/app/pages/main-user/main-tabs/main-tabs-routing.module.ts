@@ -33,6 +33,10 @@ const routes: Routes = [
         loadChildren: () => import('../main-contact-add/main-contact-add.module').then( m => m.MainContactAddPageModule)
       },
       {
+        path: 'home/alert',
+        loadChildren: () => import('../main-alert/main-alert.module').then( m => m.MainAlertPageModule)
+      },
+      {
         path: '',
         redirectTo: '/main-tabs/home',
         pathMatch: 'full'

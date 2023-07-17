@@ -62,7 +62,11 @@ const routes: Routes = [
   {
     path: 'main-contact-edit',
     loadChildren: () => import('./pages/main-user/main-contact-edit/main-contact-edit.module').then( m => m.MainContactEditPageModule)
+  },  {
+    path: 'main-alert',
+    loadChildren: () => import('./pages/main-user/main-alert/main-alert.module').then( m => m.MainAlertPageModule)
   },
+
 
 
 ];
