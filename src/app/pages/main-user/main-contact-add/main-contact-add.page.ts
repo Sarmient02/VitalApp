@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ContactInfoComponent } from 'src/app/components/contact-info/contact-info.component';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-main-contact-add',
@@ -28,27 +29,41 @@ export class MainContactAddPage implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
+    private alertController: AlertController
   ) { }
 
   ngOnInit() {
     this.route.queryParams.subscribe((params) => {
-      //console.log("add-name: ", params['name']);
-
       this.contact.name = params['name'];
       this.contact.phone = params['phone'];
     })
   }
 
-  clickedAddContact(): void{
-    if (this.hasBeenAdded == false){
+  async clickedAddContact(): Promise<void> {
+    if (this.hasBeenAdded == false && this.contactInfo.clickedAddContact()) {
       this.hasBeenAdded = true;
-      this.contactInfo.clickedAddContact();
       this.buttonColor = "success";
       this.buttonIcon = "how_to_reg";
       this.buttonText = "Contacto Añadido";
+      const alert = await this.alertController.create({
+        header:"¡Excelente!",
+        message:"El contacto ha sido añadido exitosamente.",
+        buttons: ['OK']
+      });
+      await alert.present();
+      const { role } = await alert.onDidDismiss();
+      this.sendToContacts();
+    } else {
+      const alert = await this.alertController.create({
+        header: '¡Error!',
+        message: 'Debes elegir un tipo para tu contacto de emergencia.',
+        buttons: ['OK']
+      });
+  
+      await alert.present();
     }
   }
-
+  
   sendToContacts(){
     this.router.navigate(['main-tabs/contacts']);
   }

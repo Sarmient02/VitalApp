@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
+import { ContactInfoComponent } from 'src/app/components/contact-info/contact-info.component';
 import { Contacto } from 'src/app/services/contacto';
+import { ContactsService } from 'src/app/services/contacts.service';
 
 @Component({
   selector: 'app-main-contact-edit',
@@ -9,20 +12,34 @@ import { Contacto } from 'src/app/services/contacto';
 })
 export class MainContactEditPage implements OnInit {
 
-  contact: any = {
-    name: '',
-    phone: ''
-  };
+  contact: Contacto = {} as Contacto;
 
-  constructor(private route: ActivatedRoute) { }
+  @ViewChild(ContactInfoComponent) 
+  contactInfo!: ContactInfoComponent;
+
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private route: Router,
+    private contactsService: ContactsService,
+    private alertController: AlertController
+    ) { }
 
   ngOnInit() {
-    this.route.queryParams.subscribe(params => {
+    this.activatedRoute.queryParams.subscribe(params => {
       const contacto = params;
     })
   }
 
-  editPressedContact(contacto: Contacto){
-
+  async editPressedContact(): Promise<void>{
+    if(this.contactInfo.clickedEditContact()){
+      const alert = await this.alertController.create({
+        header:"¡Excelente!",
+        message:"Los cambios han sido guardados exitosamente.",
+        buttons: ['OK']
+      });
+      await alert.present();
+      const { role } = await alert.onDidDismiss();
+      this.route.navigate(['main-tabs/contacts']);
+    }
   }
 }

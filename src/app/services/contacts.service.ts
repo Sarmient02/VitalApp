@@ -24,9 +24,14 @@ export class ContactsService {
 
   addContact(contact: Contacto): void {
     console.log("creating new contact: ", contact)
-    contact.id = this.ID++;
+    contact.id = this.getNewID();
     this.contacts.push(contact);
     this.contactosChanged.next(this.contacts);
+  }
+
+  getNewID(): number {
+    this.ID = this.ID + 1;
+    return this.ID;
   }
 
   updateContact(id: number, contact: Contacto): void {

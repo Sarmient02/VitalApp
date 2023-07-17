@@ -11,32 +11,32 @@ import { ActivatedRoute } from '@angular/router';
 export class ContactInfoComponent  implements OnInit {
 
   @Input()
-  contact: any = {
+  contact: Contacto = {
+    id: 0,
     name: '',
     phone: '',
     type: '',
     nickname: ''
   };
 
-
   contactoCreado!: Contacto;
   newContactNickname: string = "";
-  newContactType: string = "support";
-
-  confianzaImage: string = "assets/icon/contact-type/confianza_1_large_gray.png";
-  medicoImage: string = "assets/icon/contact-type/medical_1_large_gray.png";
+  newContactType: string = "";
+  typePressed: boolean = false;
 
   constructor(private contactsService: ContactsService,
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
+      this.contact.id = params["id"];
       this.contact.name = params["name"];
       this.contact.phone = params["phone"];
       this.contact.type = params["type"];
       this.contact.nickname = params["nickname"];
       this.newContactNickname = params["nickname"];
-    })
+      this.newContactType = params["type"];
+    });
   }
 
   onNameInput(event: Event){
@@ -46,26 +46,40 @@ export class ContactInfoComponent  implements OnInit {
 
   clickedConfianza(){
     this.newContactType = "support";
-    this.confianzaImage = "assets/icon/contact-type/confianza_1_large.png";
-    this.medicoImage = "assets/icon/contact-type/medical_1_large_gray.png";
-    console.log("name: ", this.newContactNickname)
+    this.typePressed = true;
   }
 
   clickedMedico(){
     this.newContactType = "emergency";
-    this.confianzaImage = "assets/icon/contact-type/confianza_1_large_gray.png";
-    this.medicoImage = "assets/icon/contact-type/medical_1_large.png";
+    this.typePressed = true;
   }
 
-  clickedAddContact(){
+  clickedAddContact(): boolean{
     this.contactoCreado = {
-      id: 1,
+      id: this.contact.id,
       name: this.contact.name,
       nickname: this.newContactNickname,
       phone: this.contact.phone,
       type: this.newContactType
-    } as Contacto;
-    console.log(this.contactoCreado);
-    this.contactsService.addContact(this.contactoCreado);
+    };
+    if (this.typePressed == false){
+      return false;
+    }else {
+      this.contactsService.addContact(this.contactoCreado);
+      return true;
+    }
+    
+  }
+
+  clickedEditContact(): boolean{
+    this.contactoCreado = {
+      id: this.contact.id,
+      name: this.contact.name,
+      nickname: this.newContactNickname,
+      phone: this.contact.phone,
+      type: this.newContactType
+    };
+    this.contactsService.updateContact(this.contactoCreado.id, this.contactoCreado);
+    return true;
   }
 }
