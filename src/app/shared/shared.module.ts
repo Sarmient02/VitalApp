@@ -6,6 +6,7 @@ import { AlertButtonComponent } from '../components/alert-button/alert-button.co
 import { ContactListComponent } from '../components/contact-list/contact-list.component';
 import { MonitorComponent } from '../components/monitor/monitor.component';
 import { ContactInfoComponent } from '../components/contact-info/contact-info.component';
+import { AddPressureComponent } from '../components/add-pressure/add-pressure.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { ContactInfoComponent } from '../components/contact-info/contact-info.co
     AlertButtonComponent,
     ContactListComponent,
     MonitorComponent,
-    ContactInfoComponent
+    ContactInfoComponent,
+    AddPressureComponent
   ],
   imports: [
     IonicModule,
@@ -24,7 +26,8 @@ import { ContactInfoComponent } from '../components/contact-info/contact-info.co
     AlertButtonComponent,
     ContactListComponent,
     MonitorComponent,
-    ContactInfoComponent
+    ContactInfoComponent,
+    AddPressureComponent
   ]
 })
 export class SharedModule { }
