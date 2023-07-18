@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from 'src/app/services/login/login.service';
-import { User } from 'src/app/services/login/user';
+import { UserService } from 'src/app/services/user/user.service';
+import { User } from 'src/app/services/user/user';
 
 @Component({
   selector: 'app-login-info',
@@ -13,7 +13,7 @@ export class LoginInfoComponent  implements OnInit {
   passwordInput: string = "";
 
   constructor(
-    private loginService: LoginService
+    private userService: UserService
   ) { }
 
   ngOnInit() {}
@@ -30,6 +30,6 @@ export class LoginInfoComponent  implements OnInit {
 
 
   loginUser(): boolean{
-    return this.loginService.checkLogin(this.phoneInput, this.passwordInput);
+    return this.userService.checkLogin(this.phoneInput, this.passwordInput);
   }
 }

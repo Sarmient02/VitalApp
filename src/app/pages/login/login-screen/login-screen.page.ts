@@ -30,6 +30,7 @@ export class LoginScreenPage implements OnInit {
         buttons: ["OK"]
       });
       await alert.present();
+      const { role } = await alert.onDidDismiss();
       this.sendToHome();
      } else {
       const alert = await this.alertController.create({

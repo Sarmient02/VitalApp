@@ -11,6 +11,7 @@ import { MapComponent } from '../components/map/map.component';
 import { AlertMonitorComponent } from '../components/alert-monitor/alert-monitor.component';
 import { AlertModalComponent } from '../components/alert-modal/alert-modal.component';
 import { LoginInfoComponent } from '../components/login-info/login-info.component';
+import { RegistrationInfoComponent } from '../components/registration-info/registration-info.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { LoginInfoComponent } from '../components/login-info/login-info.componen
     MapComponent,
     AlertMonitorComponent,
     AlertModalComponent,
-    LoginInfoComponent
+    LoginInfoComponent,
+    RegistrationInfoComponent
   ],
   imports: [
     IonicModule,
@@ -39,7 +41,8 @@ import { LoginInfoComponent } from '../components/login-info/login-info.componen
     MapComponent,
     AlertMonitorComponent,
     AlertModalComponent,
-    LoginInfoComponent
+    LoginInfoComponent,
+    RegistrationInfoComponent
   ]
 })
 export class SharedModule { }

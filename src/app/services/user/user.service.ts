@@ -6,10 +6,10 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 
-export class LoginService {
+export class UserService {
   
   users: User[] = [
-    {id: 1, name: 'Juan David', userType: 'main', phone:'312', password: '123'}
+    {id: 1, name: 'Administrator', userType: 'main', phone:'admin', password: 'admin'}
   ]
 
   usersChanged = new Subject<User[]>();
@@ -17,6 +17,10 @@ export class LoginService {
   ID = 1;
 
   constructor() { }
+
+  getUsers(): User[] {
+    return this.users;
+  }
 
   getNewID(): number {
     this.ID = this.ID + 1;

@@ -31,10 +31,6 @@ export class MainContactsPage implements OnInit {
       this.contacts = contactos;
     });
   }
-
-  goToPage(pageName: string){
-    this.router.navigate([`${pageName}`])
-  }
   
   async pickContact() {
     try {

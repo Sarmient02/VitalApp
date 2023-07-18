@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ContactInfoComponent } from 'src/app/components/contact-info/contact-info.component';
 import { AlertController } from '@ionic/angular';

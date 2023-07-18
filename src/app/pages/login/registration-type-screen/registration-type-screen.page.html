@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <app-header [title]="'Registro'"></app-header>
+</ion-header>
+
+<ion-content color="light">
+  <div class="paragraph">
+    <ion-label class="para-title">
+      ¿Qué tipo de usuario eres?
+    </ion-label>
+  </div>
+  
+  <div class="botones">
+    <div style="width: 45%;">
+      <ion-button [color]="mainButtonColor" class="btn" expand="block" (click)="clickedMainType()">
+        <span class="material-symbols-rounded toolbar-icons">person_3</span>
+        &nbsp;
+        <span class="inter" style="margin-left: 2vw;">Principal</span>
+      </ion-button>
+    </div>
+    <div class="spacer"></div>
+    <div style="width: 45%;">
+      <ion-button [color]="contactButtonColor" class="btn" expand="block" (click)="clickedContactType()">
+        <span class="material-symbols-rounded toolbar-icons">contact_phone</span>
+        &nbsp;
+        <span class="inter" style="margin-left: 2vw;">Contacto</span>
+      </ion-button>
+    </div>
+  </div>
+
+  <ion-button id="next-button" class = "next-button" (click)="clickedNext()">
+    Siguiente
+  </ion-button>
+</ion-content>

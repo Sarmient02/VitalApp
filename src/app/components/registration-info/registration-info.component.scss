@@ -1,0 +1,84 @@
+.container {
+    max-width: 90%;
+    margin: 5% auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: 25px;
+    height: fit-content;
+    padding: 5%;
+    background-color: #ffffff;
+}
+
+.card-shadow{
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.user-image{
+    max-width: 40%;
+    margin: 5% auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: 25px;
+    height: fit-content;
+    aspect-ratio: 1 / 1;
+    border-radius: 15%;
+    overflow: hidden;
+}
+
+ion-item {
+    --border-style: none;
+}
+
+ion-item {
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    width: 90%;
+}
+
+ion-item i {
+    margin-right: 5%;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2% auto;
+}
+
+ion-input {
+    font-weight: 900;
+    font-size: 22px;
+}
+
+ion-input[disabled] {
+    --color: black;
+  }
+  
+  .spacer{
+    margin: auto;
+  }
+
+  .types {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 90%;
+    margin-bottom: 4%;
+  }
+
+  .type-title {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    display: block;
+    color: #5e5e5e;
+  }
+
+  .material-symbols-rounded.diversity-icon.active {
+    color: var(--ion-color-secondary);
+  }
+  
+  .material-symbols-rounded.medical-icon.active {
+    color: var(--ion-color-danger);
+  }
