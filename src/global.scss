@@ -36,3 +36,17 @@
   ion-header {
     box-shadow: none;
 }
+
+ion-modal {
+  --max-height: 35%;
+  --max-width: 90%;
+  --border-radius: 10px;
+  --box-shadow: none;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.my-modal-toolbar {
+  --min-height: 30px;
+}

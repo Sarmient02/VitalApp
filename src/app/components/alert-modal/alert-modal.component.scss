@@ -3,15 +3,14 @@ h1 {
 }
 
 .container {
-    max-width: 90%;
-    margin: 5% auto;
     display: flex;
     flex-direction: column;
     border-radius: 25px;
     height: fit-content;
-    padding: 5%;
     background-color: #ffffff;
+    width: 100%;
 }
+  
 
 .container2 {
     margin: 0 auto;

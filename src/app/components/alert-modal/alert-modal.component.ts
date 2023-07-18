@@ -1,22 +1,26 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 import { Chart, LineController, LineElement, PointElement, LinearScale, CategoryScale } from 'chart.js';
 
 Chart.register(LineController, LineElement, PointElement, LinearScale, CategoryScale);
-
 @Component({
-  selector: 'app-monitor',
-  templateUrl: './monitor.component.html',
-  styleUrls: ['./monitor.component.scss'],
+  selector: 'app-alert-modal',
+  templateUrl: './alert-modal.component.html',
+  styleUrls: ['./alert-modal.component.scss'],
 })
-export class MonitorComponent  implements OnInit {
+export class AlertModalComponent  implements OnInit {
 
   latestSystolic: number | undefined;
   latestDiastolic: number | undefined;
   latestHeartbeat: number | undefined;
   chart: any;
 
+  constructor(
+    private modalController: ModalController,
+  ) { }
+
   ngOnInit() {
-    this.chart = new Chart('myChart', {
+    this.chart = new Chart('myChart2', {
       type: 'line',
       data: {
         labels: [],
@@ -130,13 +134,23 @@ export class MonitorComponent  implements OnInit {
       heartbeat: Math.random() * (100 - 60) + 60,
     };
   }
-  
+
+
+  closeModal() {
+    this.modalController.dismiss();
+    this.chart.destroy();
+  }
+
   ngOnDestroy() {
+    this.chart.destroy();
+  }
+
+  ionViewWillLeave() {
     this.chart.destroy();
   }
 
   ionViewDidLeave() {
     this.chart.destroy();
   }
-  
+
 }

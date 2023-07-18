@@ -36,15 +36,20 @@ export class MapComponent  implements OnInit {
   });
 
   constructor(
+    private contactsService: ContactsService,
   ) {
   }
 
   ngOnInit() {
     this.map = L.map('mapId', {
       center: [7.14082,-73.12157],
-      zoom: 20,
+      zoom: 16,
       renderer: L.canvas(),
     });
+
+    setTimeout(() => {
+      this.map.invalidateSize();
+    }, 0);
 
     setTimeout(() => {
       this.map.invalidateSize();
@@ -56,11 +61,11 @@ export class MapComponent  implements OnInit {
 
     for(var contacto of this.contactos){
       if(contacto.type == "emergency"){
-        L.marker([7.13967,-73.12152], {icon: this.emergencyIcon}).addTo(this.map)
+        L.marker(this.contactsService.getRandomCoords(), {icon: this.emergencyIcon}).addTo(this.map)
         .bindPopup(contacto.name);
       }
       if(contacto.type == "support"){
-        L.marker([7.14168,-73.12151], {icon: this.supportIcon}).addTo(this.map)
+        L.marker(this.contactsService.getRandomCoords(), {icon: this.supportIcon}).addTo(this.map)
         .bindPopup(contacto.name);
       }
     }
@@ -71,5 +76,6 @@ export class MapComponent  implements OnInit {
       this.map.invalidateSize();
     }, 0);
   }
+  
 
 }

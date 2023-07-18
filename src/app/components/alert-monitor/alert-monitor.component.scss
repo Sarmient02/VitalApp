@@ -3,28 +3,12 @@ h1 {
 }
 
 .container {
-    max-width: 90%;
-    margin: 5% auto;
     display: flex;
     flex-direction: column;
     border-radius: 25px;
     height: fit-content;
     padding: 5%;
     background-color: #ffffff;
-}
-
-.container2 {
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    border-radius: 25px;
-    height: fit-content;
-    padding: 5%;
-    background-color: #ffffff;
-}
-
-.card-shadow{
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
 
 .toolbar-icons {
@@ -79,7 +63,7 @@ h1 {
 }
 
 .heart_animation {
-    animation: pulse 0.5s linear infinite;
+    animation: pulse 1s linear infinite;
   }
   
   @keyframes pulse {
@@ -87,10 +71,19 @@ h1 {
       transform: scale(1);
     }
     50% {
-      transform: scale(1.2);
+      transform: scale(1.05);
     }
     100% {
       transform: scale(1);
     }
+  }
+
+  ion-button {
+    transform: scale(1.1);
+  }
+
+  .my-modal {
+    --width: 20%;
+    --height: 35%;
   }
   
