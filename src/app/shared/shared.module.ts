@@ -13,6 +13,8 @@ import { AlertModalComponent } from '../components/alert-modal/alert-modal.compo
 import { LoginInfoComponent } from '../components/login-info/login-info.component';
 import { RegistrationInfoComponent } from '../components/registration-info/registration-info.component';
 import { NgChartsModule } from 'ng2-charts';
+import { ConfigInfoComponent } from '../components/config-info/config-info.component';
+import { ConfigInfoEditComponent } from '../components/config-info-edit/config-info-edit.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { NgChartsModule } from 'ng2-charts';
     AlertMonitorComponent,
     AlertModalComponent,
     LoginInfoComponent,
-    RegistrationInfoComponent
+    RegistrationInfoComponent,
+    ConfigInfoComponent,
+    ConfigInfoEditComponent
   ],
   imports: [
     IonicModule,
@@ -44,7 +48,9 @@ import { NgChartsModule } from 'ng2-charts';
     AlertMonitorComponent,
     AlertModalComponent,
     LoginInfoComponent,
-    RegistrationInfoComponent
+    RegistrationInfoComponent,
+    ConfigInfoComponent,
+    ConfigInfoEditComponent
   ],
   providers: [DatePipe]
 })

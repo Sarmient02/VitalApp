@@ -1,3 +1,49 @@
-<ion-button (click)="testFunction()">
-  test
+<div class="container card-shadow">
+  <div>
+    <ion-img class="contact-image" src="../../../assets/image/edilberto_large.png"></ion-img>
+  </div>
+
+  <div class="inputs">
+    <div class="row">
+      <ion-label class="para-description">
+        Nombre
+      </ion-label>
+    </div>
+    <div class="row">
+      <ion-label class="para-title" *ngIf="activeUser!== undefined">
+        {{activeUser.name}}
+      </ion-label>
+      <ion-label class="para-title" *ngIf="activeUser == undefined">
+        No Disponible
+      </ion-label>
+    </div>
+
+    <br>
+
+    <div class="row">
+      <ion-label class="para-description">
+        Teléfono
+      </ion-label>
+    </div>
+    <div class="row">
+      <ion-label class="para-title" *ngIf="activeUser!== undefined">
+        {{activeUser.phone}}
+      </ion-label>
+      <ion-label class="para-title" *ngIf="activeUser == undefined">
+        No Disponible
+      </ion-label>
+    </div>
+  </div>
+</div>
+
+<ion-button class="edit-button" (click)="clickedEditProfile()">
+  <i class="material-symbols-rounded">save_as</i>
+  &nbsp;
+  Editar Perfil
+</ion-button>
+
+<ion-button class="logout-button" (click)="logoutUser()">
+  <i class="material-symbols-rounded">logout</i>
+  &nbsp;
+  Cerrar Sesión
 </ion-button>

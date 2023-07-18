@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from 'src/app/services/user/user';
 import { UserService } from 'src/app/services/user/user.service';
 
@@ -10,24 +10,22 @@ import { UserService } from 'src/app/services/user/user.service';
 })
 export class ConfigInfoComponent  implements OnInit {
 
-  @Input()
-  user: User = {
-    id: 0,
-    name: '',
-    phone: '',
-    password: '',
-    userType: ''
-  };
+  activeUser!: User;
 
   constructor(
     private userService: UserService,
-    private route: ActivatedRoute
+    private router: Router
   ) { }
 
-  ngOnInit() {}
-
-  testFunction(){
-    console.log(this.user);
+  ngOnInit() {
+    this.activeUser = this.userService.getActiveUser()
   }
 
+  logoutUser(){
+    this.router.navigate(['start-screen'])
+  }
+
+  clickedEditProfile(){
+    this.router.navigate(['main-tabs/config/edit'])
+  }
 }

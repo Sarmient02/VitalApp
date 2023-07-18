@@ -33,6 +33,13 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'config',
+        children: [
+          { path: '', loadChildren: () => import('../main-config/main-config.module').then( m => m.MainConfigPageModule)},
+          { path: 'edit', loadChildren: () => import('../main-config-edit/main-config-edit.module').then( m => m.MainConfigEditPageModule)}
+        ]
+      },
+      {
         path: '',
         redirectTo: '/main-tabs/home',
         pathMatch: 'full'

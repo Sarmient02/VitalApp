@@ -16,10 +16,20 @@ export class UserService {
 
   ID = 1;
 
+  activeUser!: User;
+
   constructor() { }
 
   getUsers(): User[] {
     return this.users;
+  }
+
+  getActiveUser(): User{
+    return this.activeUser;
+  }
+
+  setActiveUser(user: User){
+    this.activeUser = user;
   }
 
   getUserFromId(id: number): any{
@@ -41,6 +51,7 @@ export class UserService {
     user.id = this.getNewID();
     this.users.push(user);
     this.usersChanged.next(this.users);
+    this.setActiveUser(user);
   }
 
   updateUser(id: number, user: User): void{

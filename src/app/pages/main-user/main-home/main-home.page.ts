@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/services/user/user';
 import { UserService } from 'src/app/services/user/user.service';
 
@@ -20,14 +20,9 @@ export class MainHomePage implements OnInit {
 
   constructor(
     private userService: UserService,
-    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
-    //console.log(this.userService.getUsers());
-    this.route.queryParams.subscribe(params => {
-      this.user = this.userService.getUserFromId(params["id"]);
-    })
-    console.log(this.user);
+    this.user = this.userService.getActiveUser();
   }
 }

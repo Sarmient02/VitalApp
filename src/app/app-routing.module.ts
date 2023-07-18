@@ -94,7 +94,11 @@ const routes: Routes = [
   {
     path: 'main-config',
     loadChildren: () => import('./pages/main-user/main-config/main-config.module').then( m => m.MainConfigPageModule)
+  },  {
+    path: 'main-config-edit',
+    loadChildren: () => import('./pages/main-user/main-config-edit/main-config-edit.module').then( m => m.MainConfigEditPageModule)
   }
+
 
 
 
