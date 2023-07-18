@@ -20,7 +20,10 @@ import { LoginInfoComponent } from '../components/login-info/login-info.componen
     MonitorComponent,
     ContactInfoComponent,
     AddPressureComponent,
-    MapComponent
+    MapComponent,
+    AlertMonitorComponent,
+    AlertModalComponent,
+    LoginInfoComponent
   ],
   imports: [
     IonicModule,
@@ -33,7 +36,10 @@ import { LoginInfoComponent } from '../components/login-info/login-info.componen
     MonitorComponent,
     ContactInfoComponent,
     AddPressureComponent,
-    MapComponent
+    MapComponent,
+    AlertMonitorComponent,
+    AlertModalComponent,
+    LoginInfoComponent
   ]
 })
 export class SharedModule { }
