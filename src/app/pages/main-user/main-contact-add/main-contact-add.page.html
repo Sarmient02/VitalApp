@@ -1,13 +1,13 @@
 <ion-header [translucent]="true">
-  <app-header [title]="'Añadir Contacto'"></app-header>
+  <app-header [title]="'Añadir Contacto'" [ruta]="'main-tabs/contacts'"></app-header>
 </ion-header>
 
 <ion-content color = "light">
   <app-contact-info [contact]="contact"></app-contact-info>
-  <ion-button id="add-contact-button" [color]="buttonColor" class = "add-contact-button" (click)="clickedAddContact()">
-    <span class="material-symbols-rounded">{{buttonIcon}}</span>
+  <ion-button id="add-contact-button" [color]="buttonColor" class="add-contact-button" [class.white]="hasBeenAdded" (click)="clickedAddContact()">
+    <span class="material-symbols-rounded" [class.white]="hasBeenAdded">{{buttonIcon}}</span>
     &nbsp;
-    {{buttonText}}
+    <span [class.white]="hasBeenAdded">{{buttonText}}</span>
   </ion-button>
 
 </ion-content>

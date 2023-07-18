@@ -16,7 +16,7 @@ export class MonitorComponent  implements OnInit {
   chart: any;
 
   ngOnInit() {
-    this.chart = new Chart('myChart', {
+    this.chart = new Chart('myChart3', {
       type: 'line',
       data: {
         labels: [],
@@ -75,9 +75,6 @@ export class MonitorComponent  implements OnInit {
           },
         },
       },
-      
-      
-      
     });
     
 
@@ -132,6 +129,10 @@ export class MonitorComponent  implements OnInit {
   }
   
   ngOnDestroy() {
+    this.chart.destroy();
+  }
+
+  ionViewWillLeave() {
     this.chart.destroy();
   }
 

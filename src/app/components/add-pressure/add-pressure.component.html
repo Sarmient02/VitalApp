@@ -1,6 +1,6 @@
 <div class="container card-shadow">
   <div>
-    <ion-button color="primary" class="btn" expand="block">
+    <ion-button color="primary" class="btn" expand="block" (click)="goToHistory()">
       <span class="material-symbols-rounded toolbar-icons">youtube_searched_for</span>
       &nbsp;
       <div></div>
@@ -12,7 +12,7 @@
       <label class="input-title inter card-shadow">
         Ritmo cardíaco
       </label>
-      <ion-input placeholder="_ _ _">
+      <ion-input [maxlength]="3" type="number" placeholder="_ _ _" (input)="onHeartbeatInput($event)">
 
       </ion-input>
     </div>
@@ -20,7 +20,7 @@
       <label class="input-title inter card-shadow">
         Presión sistólica
       </label>
-      <ion-input placeholder="_ _ _">
+      <ion-input [maxlength]="3" type="number" placeholder="_ _ _" (input)="onSystolicInput($event)">
         
       </ion-input>
     </div>
@@ -28,13 +28,13 @@
       <label class="input-title inter card-shadow">
         Presión diastólica
       </label>
-      <ion-input class="ion-padding-horizontal" type="number" placeholder="_ _ _" text-center>
+      <ion-input [maxlength]="3" type="number" class="ion-padding-horizontal" (input)="onDiastolicInput($event)" placeholder="_ _ _" text-center>
         
       </ion-input>
     </div>
   </div>
   <div>
-    <ion-button color="danger" class="btn" expand="block">
+    <ion-button color="danger" class="btn" expand="block" (click)="clickedAddPressure()">
       <span class="material-symbols-rounded toolbar-icons">cardiology</span>
       &nbsp;
       <div></div>

@@ -37,6 +37,10 @@ const routes: Routes = [
         loadChildren: () => import('../main-alert/main-alert.module').then( m => m.MainAlertPageModule)
       },
       {
+        path: 'control/history',
+        loadChildren: () => import('../main-pressure-history/main-pressure-history.module').then( m => m.MainPressureHistoryPageModule)
+      },
+      {
         path: '',
         redirectTo: '/main-tabs/home',
         pathMatch: 'full'

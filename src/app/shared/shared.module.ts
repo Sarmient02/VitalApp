@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { HeaderComponent } from '../components/header/header.component';
 import { IonicModule } from '@ionic/angular';
 import { AlertButtonComponent } from '../components/alert-button/alert-button.component';
@@ -43,6 +43,8 @@ import { RegistrationInfoComponent } from '../components/registration-info/regis
     AlertModalComponent,
     LoginInfoComponent,
     RegistrationInfoComponent
-  ]
+    LoginInfoComponent
+  ],
+  providers: [DatePipe]
 })
 export class SharedModule { }

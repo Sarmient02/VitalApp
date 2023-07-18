@@ -78,11 +78,15 @@ const routes: Routes = [
   {
     path: 'registration-screen',
     loadChildren: () => import('./pages/login/registration-screen/registration-screen.module').then( m => m.RegistrationScreenPageModule)
-  },  {
-    path: 'registration-type-screen',
-    loadChildren: () => import('./pages/login/registration-type-screen/registration-type-screen.module').then( m => m.RegistrationTypeScreenPageModule)
-  }
-
+  },
+  {
+    path: 'main-synchronize',
+    loadChildren: () => import('./pages/main-user/main-synchronize/main-synchronize.module').then( m => m.MainSynchronizePageModule)
+  },
+  {
+    path: 'main-pressure-history',
+    loadChildren: () => import('./pages/main-user/main-pressure-history/main-pressure-history.module').then( m => m.MainPressureHistoryPageModule)
+  },
 
 
 
