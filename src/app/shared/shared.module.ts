@@ -43,7 +43,6 @@ import { RegistrationInfoComponent } from '../components/registration-info/regis
     AlertModalComponent,
     LoginInfoComponent,
     RegistrationInfoComponent
-    LoginInfoComponent
   ],
   providers: [DatePipe]
 })
