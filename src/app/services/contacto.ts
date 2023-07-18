@@ -4,6 +4,7 @@ export interface Contacto {
     nickname: string;
     phone: string;
     type: string;
+    image: string;
   }
   
   

@@ -16,7 +16,8 @@ export class ContactInfoComponent  implements OnInit {
     name: '',
     phone: '',
     type: '',
-    nickname: ''
+    nickname: '',
+    image: ''
   };
 
   contactoCreado!: Contacto;
@@ -36,7 +37,11 @@ export class ContactInfoComponent  implements OnInit {
       this.contact.nickname = params["nickname"];
       this.newContactNickname = params["nickname"];
       this.newContactType = params["type"];
+      this.contact.image = params["image"];
     });
+    if (this.contact.image === undefined){
+      this.contact.image = this.contactsService.getDefaultImage();
+    }
   }
 
   onNameInput(event: Event){
@@ -60,7 +65,8 @@ export class ContactInfoComponent  implements OnInit {
       name: this.contact.name,
       nickname: this.newContactNickname,
       phone: this.contact.phone,
-      type: this.newContactType
+      type: this.newContactType,
+      image: this.contactsService.getDefaultImage()
     };
     if (this.typePressed == false){
       return false;
@@ -77,7 +83,8 @@ export class ContactInfoComponent  implements OnInit {
       name: this.contact.name,
       nickname: this.newContactNickname,
       phone: this.contact.phone,
-      type: this.newContactType
+      type: this.newContactType,
+      image: this.contact.image
     };
     console.log(this.contactoCreado);
     this.contactsService.updateContact(this.contactoCreado.id, this.contactoCreado);
@@ -90,7 +97,8 @@ export class ContactInfoComponent  implements OnInit {
       name: this.contact.name,
       nickname: this.newContactNickname,
       phone: this.contact.phone,
-      type: this.newContactType
+      type: this.newContactType,
+      image: this.contact.image
     };
     console.log(this.contactoCreado);
     this.contactsService.deleteContact(this.contactoCreado.id);

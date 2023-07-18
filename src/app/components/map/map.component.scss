@@ -1,3 +1,19 @@
 #mapId {
-    min-height: 100%;
+    min-height: 40vh;
+    max-width: 90vw;
 }
+
+:host ::ng-deep .my-div-icon i {
+    color: var(--ion-color-tertiary-shade);
+    font-size: 32px;
+  }
+
+  :host ::ng-deep .emergency-icon i {
+    color: var(--ion-color-danger-shade);
+    font-size: 32px;
+  }
+
+  :host ::ng-deep .support-icon i {
+    color: var(--ion-color-secondary-shade);
+    font-size: 32px;
+  }

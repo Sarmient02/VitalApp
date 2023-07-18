@@ -8,13 +8,16 @@ import { Subject } from 'rxjs';
 export class ContactsService {
 
   contacts: Contacto[] = [
-    {id: 1, name: 'Juan Perez', nickname: 'xdadasdsadsadasdsadsa', phone: "+57 300 8001221", type: 'emergency'},
-    {id: 2, name: 'Pedro Garcia', nickname: 'xd', phone: "987654321", type: 'support'},
+    {id: 1, name: 'Juan Perez', nickname: 'Hijo', phone: "+57 315 3766788", type: 'support', image: 'https://randomuser.me/api/portraits/men/45.jpg'},
+    {id: 2, name: 'Andrea Díaz', nickname: 'Sobrina', phone: "+57 318 8859236", type: 'support', image: 'https://randomuser.me/api/portraits/women/55.jpg'},
+    {id: 3, name: 'Maria Lopez', nickname: 'Amiga', phone: "+57 302 3856991", type: 'support', image: 'https://randomuser.me/api/portraits/women/8.jpg'},
+    {id: 4, name: 'AME', nickname: 'Asistencia Médica', phone: "607 6577171", type: 'emergency', image: 'https://pbs.twimg.com/profile_images/949639369488465920/sBF5SBLB_400x400.jpg'},
+    {id: 5, name: 'Ambulancia', nickname: '', phone: "911", type: 'emergency', image: 'https://televen.com/wp-content/uploads/2019/07/911-accesolatino.jpg'},
   ];
 
   contactosChanged = new Subject<Contacto[]>();
 
-  ID = 2;
+  ID = 5;
 
   constructor() { }
 
@@ -51,6 +54,10 @@ export class ContactsService {
     this.contacts.splice(index, 1);
     console.log(this.contacts);
     this.contactosChanged.next(this.contacts);
+  }
+
+  getDefaultImage(): string {
+    return 'https://static.vecteezy.com/system/resources/thumbnails/002/534/006/small/social-media-chatting-online-blank-profile-picture-head-and-body-icon-people-standing-icon-grey-background-free-vector.jpg';
   }
 
 }

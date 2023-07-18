@@ -1,7 +1,7 @@
 <ion-list class="contact-list card-shadow" lines="full">
   <ion-item button (click)="editPressedContact(contact)" *ngFor = "let contact of contactos">
     <ion-avatar slot="start">
-      <img [src]="'assets/image/edilberto.png'">
+      <img src="{{contact.image}}">
     </ion-avatar>
     <ion-label>
       <h2>{{contact.name}}</h2>

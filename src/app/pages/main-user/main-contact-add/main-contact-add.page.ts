@@ -2,6 +2,7 @@ import { Component, OnInit, Output, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ContactInfoComponent } from 'src/app/components/contact-info/contact-info.component';
 import { AlertController } from '@ionic/angular';
+import { ContactsService } from 'src/app/services/contacts.service';
 
 @Component({
   selector: 'app-main-contact-add',
@@ -17,7 +18,8 @@ export class MainContactAddPage implements OnInit {
 
   contact: any = {
     name: '',
-    phone: ''
+    phone: '',
+    image: ''
   };
 
   buttonColor: string = "primary";
@@ -29,14 +31,16 @@ export class MainContactAddPage implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private contactsService: ContactsService
   ) { }
 
   ngOnInit() {
     this.route.queryParams.subscribe((params) => {
       this.contact.name = params['name'];
       this.contact.phone = params['phone'];
-    })
+    });
+    this.contact.image = this.contactsService.getDefaultImage();
   }
 
   async clickedAddContact(): Promise<void> {
