@@ -148,7 +148,7 @@ export class MonitorComponent implements OnInit, OnDestroy {
 
   goToSynchronize() {
     this.isChartInitialized = false;
-    this.router.navigate(['control/synchronize']);
+    this.router.navigate(['main-tabs/control/synchronize']);
   }
 
   getBloodPressureData() {

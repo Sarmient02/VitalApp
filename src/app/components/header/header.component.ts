@@ -26,6 +26,6 @@ export class HeaderComponent  implements OnInit {
   }
 
   clickedConfig(){
-    this.router.navigate(['main-tabs/config']);
+    this.router.navigate(['main-tabs/home/config']);
   }
 }
