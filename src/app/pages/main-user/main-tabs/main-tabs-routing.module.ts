@@ -41,6 +41,10 @@ const routes: Routes = [
         loadChildren: () => import('../main-pressure-history/main-pressure-history.module').then( m => m.MainPressureHistoryPageModule)
       },
       {
+        path: 'config',
+        loadChildren: () => import('../main-config/main-config.module').then( m => m.MainConfigPageModule)
+      },
+      {
         path: '',
         redirectTo: '/main-tabs/home',
         pathMatch: 'full'

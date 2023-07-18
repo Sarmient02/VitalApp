@@ -87,6 +87,14 @@ const routes: Routes = [
     path: 'main-pressure-history',
     loadChildren: () => import('./pages/main-user/main-pressure-history/main-pressure-history.module').then( m => m.MainPressureHistoryPageModule)
   },
+  {
+    path: 'registration-type-screen',
+    loadChildren: () => import('./pages/login/registration-type-screen/registration-type-screen.module').then( m => m.RegistrationTypeScreenPageModule)
+  },
+  {
+    path: 'main-config',
+    loadChildren: () => import('./pages/main-user/main-config/main-config.module').then( m => m.MainConfigPageModule)
+  }
 
 
 

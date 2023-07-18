@@ -10,8 +10,10 @@ import { Router } from '@angular/router';
 
 export class HeaderComponent  implements OnInit {
 
-  constructor(private location: Location,
-    private route: Router) { }
+  constructor(
+    private location: Location,
+    private router: Router
+    ) { }
 
   @Input() title = 'Inicio';
 
@@ -20,6 +22,10 @@ export class HeaderComponent  implements OnInit {
   ngOnInit() {}
 
   myBackButton() {
-    this.route.navigate([this.ruta]);
+    this.router.navigate([this.ruta]);
+  }
+
+  clickedConfig(){
+    this.router.navigate(['main-tabs/config']);
   }
 }

@@ -4,12 +4,13 @@ import { User } from 'src/app/services/user/user';
 import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
-  selector: 'app-main-home',
-  templateUrl: './main-home.page.html',
-  styleUrls: ['./main-home.page.scss'],
+  selector: 'app-config-info',
+  templateUrl: './config-info.component.html',
+  styleUrls: ['./config-info.component.scss'],
 })
-export class MainHomePage implements OnInit {
+export class ConfigInfoComponent  implements OnInit {
 
+  @Input()
   user: User = {
     id: 0,
     name: '',
@@ -23,11 +24,10 @@ export class MainHomePage implements OnInit {
     private route: ActivatedRoute
   ) { }
 
-  ngOnInit() {
-    //console.log(this.userService.getUsers());
-    this.route.queryParams.subscribe(params => {
-      this.user = this.userService.getUserFromId(params["id"]);
-    })
+  ngOnInit() {}
+
+  testFunction(){
     console.log(this.user);
   }
+
 }

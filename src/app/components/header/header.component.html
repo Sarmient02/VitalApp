@@ -1,7 +1,7 @@
 <ion-toolbar class="toolbar-header card-shadow">
   <ng-container *ngIf="title === 'Inicio'; else diferente">
     <ion-buttons slot="start">
-      <ion-button color="primary" class="material-symbols-rounded toolbar-icons">settings</ion-button>
+      <ion-button color="primary" class="material-symbols-rounded toolbar-icons" (click)="clickedConfig()">settings</ion-button>
     </ion-buttons>
   </ng-container>
   <ng-template #diferente>

@@ -22,6 +22,15 @@ export class UserService {
     return this.users;
   }
 
+  getUserFromId(id: number): any{
+    const index = this.users.findIndex(u => u.id == id);
+    if (this.users[index]){
+      return this.users[index];
+    } else {
+      return false;
+    }
+  }
+
   getNewID(): number {
     this.ID = this.ID + 1;
     return this.ID;

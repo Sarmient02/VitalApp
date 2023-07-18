@@ -11,13 +11,6 @@ export class RegistrationScreenPage implements OnInit {
   @ViewChild(RegistrationInfoComponent) 
   registrationInfo!: RegistrationInfoComponent;
 
-  user: any = {
-    name: '',
-    phone: '',
-    password: '',
-    type: ''
-  }
-
   constructor(
   ) { }
 

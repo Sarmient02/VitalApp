@@ -11,12 +11,12 @@ import { User } from 'src/app/services/user/user';
 })
 export class RegistrationTypeScreenPage implements OnInit {
 
-  user: any = {
+  user: User = {
     id: 0,
     name: '',
     phone: '',
     password: '',
-    type: ''
+    userType: ''
   };
 
   mainButtonColor: string = "medium";
@@ -45,24 +45,24 @@ export class RegistrationTypeScreenPage implements OnInit {
   clickedMainType(): void{
     this.mainButtonColor = "primary";
     this.contactButtonColor = "medium";
-    this.user.type = "main";
+    this.user.userType = "main";
     this.hasClickedType = true;
   }
 
   clickedContactType(): void{
     this.mainButtonColor = "medium";
     this.contactButtonColor = "primary";
-    this.user.type = "contact";
+    this.user.userType = "contact";
     this.hasClickedType = true;
   }
 
   sendToMainPage(){
-    if (this.user.type == "main"){
+    if (this.user.userType == "main"){
       console.log("going to main page")
       console.log(this.userService.getUsers());
       this.router.navigate(["main-tabs/home"],
       {queryParams: {id: this.newUser.id}})
-    } else if (this.user.type == "contact") {
+    } else if (this.user.userType == "contact") {
       console.log("going to contact page")
     } else {
       console.log("error: wrong user type")
