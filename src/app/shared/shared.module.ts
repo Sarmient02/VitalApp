@@ -12,6 +12,7 @@ import { AlertMonitorComponent } from '../components/alert-monitor/alert-monitor
 import { AlertModalComponent } from '../components/alert-modal/alert-modal.component';
 import { LoginInfoComponent } from '../components/login-info/login-info.component';
 import { RegistrationInfoComponent } from '../components/registration-info/registration-info.component';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { RegistrationInfoComponent } from '../components/registration-info/regis
   ],
   imports: [
     IonicModule,
-    CommonModule
+    CommonModule,
+    NgChartsModule
   ],
   exports: [
     HeaderComponent,

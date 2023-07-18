@@ -1,41 +1,79 @@
-import { AfterViewInit, Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Chart, LineController, LineElement, PointElement, LinearScale, CategoryScale } from 'chart.js';
 import { ChartService } from 'src/app/services/chart.service';
-
-Chart.register(LineController, LineElement, PointElement, LinearScale, CategoryScale);
+import { ChartDataset, ChartOptions } from 'chart.js';
+import { BaseChartDirective } from 'ng2-charts';
 
 @Component({
   selector: 'app-monitor',
   templateUrl: './monitor.component.html',
   styleUrls: ['./monitor.component.scss'],
 })
-export class MonitorComponent implements OnInit, OnDestroy {
+export class MonitorComponent implements OnInit {
   latestSystolic: number | undefined;
   latestDiastolic: number | undefined;
   latestHeartbeat: number | undefined;
-  chart: any;
-  isChartInitialized: boolean = false;
+  @ViewChild(BaseChartDirective) chart!: BaseChartDirective;
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private chartService: ChartService,
+  ) { }
+
+  public lineChartData: any[] = [
+    { data: [], label: 'Presión Sistólica', borderColor: '#3cba9f', fill: false, borderWidth: 1.5, pointRadius: 1 },
+    { data: [], label: 'Presión Diastólica', borderColor: '#ffcc00', fill: false, borderWidth: 1.5, pointRadius: 1 },
+    { data: [], label: 'Heartbeat', borderColor: '#ff0000', fill: false, borderWidth: 1.5, pointRadius: 1 }
+  ];
+  public lineChartLabels: string[] = [];
+  public lineChartOptions: ChartOptions = {
+    responsive: true,
+    scales:{
+      x:{
+        grid:{
+          display:false
+        },
+        ticks:{
+          color:'#0857de',
+          font:{
+            size:7.5,
+            weight:'bold'
+          }
+        }
+      },
+      y:{
+        grid:{
+          display:false
+        },
+        ticks:{
+          color:'#0857de',
+          font:{
+            size:7.5,
+            weight:'bold'
+          }
+        }
+      }
+    },
+    plugins:{
+      legend:{
+        display:false
+      }
+    }
+  };
+  public lineChartType = 'line';
 
   ngOnInit() {
-      // Initialize or update the chart data
-    this.initializeOrUpdateChart();
 
-    for (let i = 0; i < 20; i++) {
+    // Initialize the chart data with the first 30 data points
+    for (let i = 0; i < 30; i++) {
       const bloodPressureData = this.getBloodPressureData();
       const currentTime = new Date();
-      currentTime.setSeconds(currentTime.getSeconds() - (20 - i));
-      this.chart.data.labels.push(currentTime.getSeconds().toString());
-      this.chart.data.datasets[0].data.push({ x: currentTime, y: bloodPressureData.systolic });
-      this.chart.data.datasets[1].data.push({ x: currentTime, y: bloodPressureData.diastolic });
-      this.chart.data.datasets[2].data.push({ x: currentTime, y: bloodPressureData.heartbeat });
-      if(i == 19){
-        this.latestSystolic = bloodPressureData.systolic;
-        this.latestDiastolic = bloodPressureData.diastolic;
-        this.latestHeartbeat = bloodPressureData.heartbeat;
-      }
+      currentTime.setSeconds(currentTime.getSeconds() - (30 - i));
+      this.lineChartLabels.push(currentTime.getSeconds().toString());
+      this.lineChartData[0].data.push(bloodPressureData.systolic);
+      this.lineChartData[1].data.push(bloodPressureData.diastolic);
+      this.lineChartData[2].data.push(bloodPressureData.heartbeat);
     }
 
     // Start updating the chart data at regular intervals
@@ -44,119 +82,39 @@ export class MonitorComponent implements OnInit, OnDestroy {
     }, 1000);
   }
 
-  ionViewWillLeave() {
-    this.isChartInitialized = false;
-  }
-
-  initializeOrUpdateChart() {
-    if (!this.isChartInitialized) {
-      this.chart = new Chart('myChart3', {
-        type: 'line',
-        data: {
-          labels: [],
-          datasets: [
-            {
-              label: 'Presión Sistólica',
-              data: [],
-              borderColor: '#3cba9f',
-              fill: false,
-              borderWidth: 1.5,
-              pointRadius: 1,
-            },
-            {
-              label: 'Presión Diastólica',
-              data: [],
-              borderColor: '#ffcc00',
-              fill: false,
-              borderWidth: 1.5,
-              pointRadius: 1,
-            },
-            {
-              label: 'Heartbeat',
-              data: [],
-              borderColor: '#ff0000',
-              fill: false,
-              borderWidth: 1.5,
-              pointRadius: 1,
-            },
-          ],
-        },
-        options: {
-          scales: {
-            x: {
-              grid: {
-                display: false,
-              },
-              ticks: {
-                font: {
-                  size: 7.5,
-                  weight: 'bold',
-                },
-                color: '#0857de',
-              },
-            },
-            y: {
-              grid: {
-                display: false,
-              },
-              ticks: {
-                font: {
-                  size: 7.5,
-                  weight: 'bold',
-                },
-                color: '#0857de',
-              },
-            },
-          },
-        },
-      });
-      this.isChartInitialized = true;
-    } else {
-      // Update the chart data
-      this.updateChartData();
-    }
-  }
-
   updateChartData() {
-    // Aquí puedes obtener los datos del tensiómetro y actualizar el gráfico
+    // Get new blood pressure data
     const bloodPressureData = this.getBloodPressureData();
     const currentTime = new Date();
-    this.chart.data.labels.push(currentTime.getSeconds().toString());
-    this.chart.data.datasets[0].data.push({ x: currentTime, y: bloodPressureData.systolic });
-    this.chart.data.datasets[1].data.push({ x: currentTime, y: bloodPressureData.diastolic });
-    this.chart.data.datasets[2].data.push({ x: currentTime, y: bloodPressureData.heartbeat });
-    this.chart.update();
-    this.chart.data.labels.shift();
-    this.chart.data.datasets[0].data.shift();
-    this.chart.data.datasets[1].data.shift();
-    this.chart.data.datasets[2].data.shift();
 
-    // Update the latest values in the component properties
+    // Remove the first data point and add a new data point at the end
+    this.lineChartLabels.shift();
+    this.lineChartData[0].data.shift();
+    this.lineChartData[1].data.shift();
+    this.lineChartData[2].data.shift();
+    this.lineChartLabels.push(currentTime.getSeconds().toString());
+    this.lineChartData[0].data.push(bloodPressureData.systolic);
+    this.lineChartData[1].data.push(bloodPressureData.diastolic);
+    this.lineChartData[2].data.push(bloodPressureData.heartbeat);
+
     this.latestSystolic = bloodPressureData.systolic;
     this.latestDiastolic = bloodPressureData.diastolic;
     this.latestHeartbeat = bloodPressureData.heartbeat;
-  }
 
-  ngOnDestroy() {
-    // Clean up the chart instance when leaving the component
-    if (this.chart) {
-      this.chart.destroy();
-      this.isChartInitialized = false;
-      console.log("destroy")
-    }
-  }
-
-  goToSynchronize() {
-    this.isChartInitialized = false;
-    this.router.navigate(['main-tabs/control/synchronize']);
+    // Force an update of the chart
+    this.chart.update();  
   }
 
   getBloodPressureData() {
-    // Aquí puedes obtener los datos del tensiómetro desde un dispositivo externo o generar datos simulados
+    // Here you can get the blood pressure data from an external device or generate simulated data
     return {
       systolic: Math.random() * (140 - 90) + 90,
       diastolic: Math.random() * (90 - 60) + 60,
       heartbeat: Math.random() * (100 - 60) + 60,
     };
+  }
+
+  goToSync() {
+    this.router.navigateByUrl('main-tabs/control/synchronize');
   }
 }

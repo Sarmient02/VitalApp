@@ -10,13 +10,15 @@ import { MainControlPage } from './main-control.page';
 
 import { SharedModule } from 'src/app/shared/shared.module';
 
+import { NgChartsModule } from 'ng2-charts';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     MainControlPageRoutingModule,
-    SharedModule
+    SharedModule,
   ],
   declarations: [MainControlPage]
 })
