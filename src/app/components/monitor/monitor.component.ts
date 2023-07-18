@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Chart, LineController, LineElement, PointElement, LinearScale, CategoryScale } from 'chart.js';
+import { ChartService } from 'src/app/services/chart.service';
 
 Chart.register(LineController, LineElement, PointElement, LinearScale, CategoryScale);
 

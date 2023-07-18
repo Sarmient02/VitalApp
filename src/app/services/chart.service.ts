@@ -8,9 +8,81 @@ Chart.register(LineController, LineElement, PointElement, LinearScale, CategoryS
 })
 export class ChartService {
 
-  constructor() { }
+  constructor() { 
+    
+  }
 
-  getNewChartName() {
-    return 'myChart' + Math.floor(Math.random() * 1000);
+  chart: Chart | undefined;
+
+  destroyChart(){
+    if(this.chart != undefined){
+      this.chart.destroy();
+    }
+    console.log(this.chart)
+    return this.chart;
+  }
+
+  getChart(){
+    this.chart = new Chart('myChart2', {
+      type: 'line',
+      data: {
+        labels: [],
+        datasets: [
+          {
+            label: 'Presión Sistólica',
+            data: [],
+            borderColor: '#3cba9f',
+            fill: false,
+            borderWidth: 1.5,
+            pointRadius: 1,
+          },
+          {
+            label: 'Presión Diastólica',
+            data: [],
+            borderColor: '#ffcc00',
+            fill: false,
+            borderWidth: 1.5,
+            pointRadius: 1,
+          },
+          {
+            label: 'Heartbeat',
+            data: [],
+            borderColor: '#ff0000',
+            fill: false,
+            borderWidth: 1.5,
+            pointRadius: 1,
+          },
+        ],        
+      },
+      options: {
+        scales: {
+          x: {
+            grid: {
+              display: false,
+            },
+            ticks: {
+              font: {
+                size: 7.5,
+                weight: 'bold',
+              },
+              color: '#0857de',
+            },
+          },
+          y: {
+            grid: {
+              display: false,
+            },
+            ticks: {
+              font: {
+                size: 7.5,
+                weight: 'bold',
+              },
+              color: '#0857de',
+            },
+          },
+        },
+      },
+    });
+    return this.chart;
   }
 }

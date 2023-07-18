@@ -49,8 +49,14 @@ export class AlertMonitorComponent  implements OnInit {
       component: AlertModalComponent,
       backdropDismiss: true,
       cssClass: 'premio-modal',
+      componentProps: {
+        'latestSystolic': this.latestSystolic,
+        'latestDiastolic': this.latestDiastolic,
+        'latestHeartbeat': this.latestHeartbeat,
+      }
     });
     return await modal.present();
   }
+  
 
 }
