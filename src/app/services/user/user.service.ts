@@ -16,7 +16,13 @@ export class UserService {
 
   ID = 1;
 
-  activeUser!: User;
+  activeUser: User = {
+    id: 2,
+    name: 'Edilberto Gutierrez',
+    userType: 'main',
+    phone: '+57 322 8273822',
+    password: 'admin'
+  };
 
   constructor() { }
 
