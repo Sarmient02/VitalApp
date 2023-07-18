@@ -10,43 +10,27 @@ const routes: Routes = [
     children : [
       {
         path: 'home',
-        loadChildren: () => import('../main-home/main-home.module').then( m => m.MainHomePageModule)
+        children: [
+          { path: '', loadChildren: () => import('../main-home/main-home.module').then( m => m.MainHomePageModule) },
+          { path: 'alert', loadChildren: () => import('../main-alert/main-alert.module').then( m => m.MainAlertPageModule) },
+          { path: 'config', loadChildren: () => import('../main-config/main-config.module').then( m => m.MainConfigPageModule) },
+        ]
       },
       {
         path: 'contacts',
-        loadChildren: () => import('../main-contacts/main-contacts.module').then( m => m.MainContactsPageModule)
-      },
-      {
-        path: 'contacts/add',
-        loadChildren: () => import('../main-contact-add/main-contact-add.module').then( m => m.MainContactAddPageModule)
-      },
-      {
-        path: 'contacts/edit',
-        loadChildren: () => import('../main-contact-edit/main-contact-edit.module').then( m => m.MainContactEditPageModule)
+        children: [
+          { path: '', loadChildren: () => import('../main-contacts/main-contacts.module').then( m => m.MainContactsPageModule) },
+          { path: 'edit', loadChildren: () => import('../main-contact-edit/main-contact-edit.module').then( m => m.MainContactEditPageModule) },
+          { path: 'add', loadChildren: () => import('../main-contact-add/main-contact-add.module').then( m => m.MainContactAddPageModule) },
+        ]
       },
       {
         path: 'control',
-        loadChildren: () => import('../main-control/main-control.module').then( m => m.MainControlPageModule)
-      },
-      {
-        path: 'contacts/add',
-        loadChildren: () => import('../main-contact-add/main-contact-add.module').then( m => m.MainContactAddPageModule)
-      },
-      {
-        path: 'home/alert',
-        loadChildren: () => import('../main-alert/main-alert.module').then( m => m.MainAlertPageModule)
-      },
-      {
-        path: 'control/history',
-        loadChildren: () => import('../main-pressure-history/main-pressure-history.module').then( m => m.MainPressureHistoryPageModule)
-      },
-      {
-        path: 'config',
-        loadChildren: () => import('../main-config/main-config.module').then( m => m.MainConfigPageModule)
-      },
-      {
-        path: 'control/synchronize',
-        loadChildren: () => import('../main-synchronize/main-synchronize.module').then( m => m.MainSynchronizePageModule)
+        children: [
+          { path: '', loadChildren: () => import('../main-control/main-control.module').then( m => m.MainControlPageModule) },
+          { path: 'history', loadChildren: () => import('../main-pressure-history/main-pressure-history.module').then( m => m.MainPressureHistoryPageModule) },
+          { path: 'synchronize', loadChildren: () => import('../main-synchronize/main-synchronize.module').then( m => m.MainSynchronizePageModule) },
+        ]
       },
       {
         path: '',
