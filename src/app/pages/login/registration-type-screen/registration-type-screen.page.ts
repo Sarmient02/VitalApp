@@ -58,14 +58,14 @@ export class RegistrationTypeScreenPage implements OnInit {
 
   sendToMainPage(){
     if (this.user.userType == "main"){
-      console.log("going to main page")
-      console.log(this.userService.getUsers());
+      //console.log("going to main page")
+      //console.log(this.userService.getUsers());
       this.router.navigate(["main-tabs/home"],
       {queryParams: {id: this.newUser.id}})
     } else if (this.user.userType == "contact") {
-      console.log("going to contact page")
+      //console.log("going to contact page")
     } else {
-      console.log("error: wrong user type")
+      //console.log("error: wrong user type")
     }
   }
 
