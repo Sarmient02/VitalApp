@@ -10,6 +10,7 @@ import { AddPressureComponent } from '../components/add-pressure/add-pressure.co
 import { MapComponent } from '../components/map/map.component';
 import { AlertMonitorComponent } from '../components/alert-monitor/alert-monitor.component';
 import { AlertModalComponent } from '../components/alert-modal/alert-modal.component';
+import { LoginInfoComponent } from '../components/login-info/login-info.component';
 
 @NgModule({
   declarations: [
@@ -19,9 +20,7 @@ import { AlertModalComponent } from '../components/alert-modal/alert-modal.compo
     MonitorComponent,
     ContactInfoComponent,
     AddPressureComponent,
-    MapComponent,
-    AlertMonitorComponent,
-    AlertModalComponent
+    MapComponent
   ],
   imports: [
     IonicModule,
@@ -34,9 +33,7 @@ import { AlertModalComponent } from '../components/alert-modal/alert-modal.compo
     MonitorComponent,
     ContactInfoComponent,
     AddPressureComponent,
-    MapComponent,
-    AlertMonitorComponent,
-    AlertModalComponent
+    MapComponent
   ]
 })
 export class SharedModule { }

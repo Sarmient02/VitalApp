@@ -61,7 +61,7 @@ export class MainContactAddPage implements OnInit {
       const alert = await this.alertController.create({
         header: '¡Error!',
         message: 'Debes elegir un tipo para tu contacto de emergencia.',
-        buttons: ['OK']
+        buttons: ['Volver']
       });
   
       await alert.present();

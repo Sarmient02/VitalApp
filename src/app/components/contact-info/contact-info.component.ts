@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Contacto } from '../../services/contacto';
 import { ContactsService } from '../../services/contacts.service';
 import { ActivatedRoute } from '@angular/router';

@@ -1,0 +1,71 @@
+.container {
+    max-width: 90%;
+    margin: 15% auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: 25px;
+    height: fit-content;
+    padding: 5%;
+    background-color: #ffffff;
+    aspect-ratio: 1 / 1;
+}
+
+.sub-container {
+    max-width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: 25px;
+    height: fit-content;
+    padding: 5%;
+    background-color: #ffffff;
+    margin-bottom: 3%;
+}
+
+
+.card-shadow{
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.logo-container{
+    position: relative;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+}
+
+.app-logo{
+    height: 90%;
+}
+
+.app-title{
+    font-size: xx-large;
+    font-weight: bolder;
+}
+
+ion-button::part(native) span.button-inner {
+    flex-direction: column !important;
+  }
+  
+
+.btn {
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 25px;
+    max-width: 90%;
+    height: 15vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-transform: none;
+    text-size-adjust: 80%;
+    --border-radius: 25px;
+    width: 90%;
+}
+
+.inter {
+    font-weight: 900;
+}

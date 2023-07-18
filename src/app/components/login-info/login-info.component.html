@@ -1,0 +1,17 @@
+<div class="container card-shadow">
+
+  <div class="inputs">
+    <div class="row">
+      <ion-item>
+        <i class="material-symbols-rounded">call</i>
+        <ion-input [value]="phoneInput" class="inter" type="text" placeholder="Teléfono" (input)="onPhoneInput($event)"></ion-input>
+      </ion-item>
+    </div>
+    <div class="row">
+      <ion-item>
+        <i class="material-symbols-rounded">vpn_key</i>
+        <ion-input [value]="passwordInput" class="inter" type="password" placeholder="Contraseña" (input)="onPasswordInput($event)"></ion-input>
+      </ion-item>
+    </div>
+  </div>
+</div>
