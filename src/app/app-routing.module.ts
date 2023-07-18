@@ -66,6 +66,19 @@ const routes: Routes = [
     path: 'main-alert',
     loadChildren: () => import('./pages/main-user/main-alert/main-alert.module').then( m => m.MainAlertPageModule)
   },
+  {
+    path: 'start-screen',
+    loadChildren: () => import('./pages/login/start-screen/start-screen.module').then( m => m.StartScreenPageModule)
+  },
+  {
+    path: 'login-screen',
+    loadChildren: () => import('./pages/login/login-screen/login-screen.module').then( m => m.LoginScreenPageModule)
+  },
+  {
+    path: 'registration-screen',
+    loadChildren: () => import('./pages/login/registration-screen/registration-screen.module').then( m => m.RegistrationScreenPageModule)
+  },
+
 
 
 
