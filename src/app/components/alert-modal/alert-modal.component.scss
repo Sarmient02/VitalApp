@@ -93,3 +93,14 @@ h1 {
     }
   }
   
+
+  .grafica {
+    padding-top: 5%;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .grafica canvas {
+    width: 100% !important;
+    height: auto !important;
+  }

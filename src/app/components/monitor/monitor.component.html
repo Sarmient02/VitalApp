@@ -15,15 +15,14 @@
     <span class="spacer"></span>
   </div>
   <span class="spacer"></span>
-  <div style="display: block; justify-content: center;">
-    <div style="width: 80%;">
+  <div class="grafica">
         <canvas  style="width: 100%;" id="chart" baseChart
           [datasets]="lineChartData"
           [labels]="lineChartLabels"
           [options]="lineChartOptions"
-          [type]="'line'">
+          [type]="'line'"
+          >
         </canvas>
-  </div>
   <div>
     <ion-button class="btn" expand="block" (click)="goToSync()">
       <span class="material-symbols-rounded toolbar-icons">cast</span>

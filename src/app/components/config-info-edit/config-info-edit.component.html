@@ -11,21 +11,21 @@
       <ion-item>
         <i class="material-symbols-rounded">account_circle</i>
         <ion-input class="inter" type="text" value="{{activeUser.name}}" *ngIf="activeUser !== undefined" (input)="onNameInput($event)"></ion-input>
-        <ion-input class="inter" type="text" placeholder="Nombre" *ngIf="activeUser == undefined" (input)="onNameInput($event)"></ion-input>
+        <ion-input class="inter" type="text" placeholder="Nombre" *ngIf="activeUser === undefined" (input)="onNameInput($event)"></ion-input>
       </ion-item>
     </div>
     <div class="row">
       <ion-item>
         <i class="material-symbols-rounded">call</i>
         <ion-input class="inter" type="number" value="{{activeUser.phone}}" *ngIf="activeUser !== undefined" (input)="onPhoneInput($event)"></ion-input>
-        <ion-input class="inter" type="number" placeholder="Teléfono" *ngIf="activeUser == undefined" (input)="onPhoneInput($event)"></ion-input>
+        <ion-input class="inter" type="number" placeholder="Teléfono" *ngIf="activeUser === undefined" (input)="onPhoneInput($event)"></ion-input>
       </ion-item>
     </div>
     <div class="row">
       <ion-item>
         <i class="material-symbols-rounded">badge</i>
         <ion-input class="inter" type="password" value="{{activeUser.password}}" *ngIf="activeUser !== undefined" (input)="onPasswordInput($event)"></ion-input>
-        <ion-input class="inter" type="password" placeholder="Nueva contraseña" *ngIf="activeUser == undefined" (input)="onPasswordInput($event)"></ion-input>
+        <ion-input class="inter" type="password" placeholder="Nueva contraseña" *ngIf="activeUser === undefined" (input)="onPasswordInput($event)"></ion-input>
       </ion-item>
     </div>
   </div>

@@ -25,9 +25,13 @@
     <span class="spacer"></span>
   </div>
   <span class="spacer"></span>
-  <div style="display: flex; justify-content: center;">
-    <div style="width: 90%;">
-      <img src="{{chart}}">
-    </div>
-  </div>
+  <div class="grafica">
+    <canvas  style="width: 100%;" id="chart" baseChart
+      [datasets]="lineChartData"
+      [labels]="lineChartLabels"
+      [options]="lineChartOptions"
+      [type]="'line'"
+      >
+    </canvas>
+<div>
 </div>

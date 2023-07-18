@@ -22,10 +22,12 @@ export class MonitorComponent implements OnInit {
   ) { }
 
   public lineChartData: any[] = [
-    { data: [], label: 'Presión Sistólica', borderColor: '#3cba9f', fill: false, borderWidth: 1.5, pointRadius: 1 },
-    { data: [], label: 'Presión Diastólica', borderColor: '#ffcc00', fill: false, borderWidth: 1.5, pointRadius: 1 },
-    { data: [], label: 'Heartbeat', borderColor: '#ff0000', fill: false, borderWidth: 1.5, pointRadius: 1 }
+    { data: [], label: 'Presión Sistólica', borderColor: '#3cba9f', fill: false, borderWidth: 1, pointRadius: 2, pointBackgroundColor: '#39a58d' },
+    { data: [], label: 'Presión Diastólica', borderColor: '#ffcc00', fill: false, borderWidth: 1, pointRadius: 2, pointBackgroundColor: '#e1b502' },
+    { data: [], label: 'Heartbeat', borderColor: '#ff0000', fill: false, borderWidth: 1, pointRadius: 2, pointBackgroundColor: '#d00000' }
   ];
+  
+  
   public lineChartLabels: string[] = [];
   public lineChartOptions: ChartOptions = {
     responsive: true,
@@ -62,6 +64,22 @@ export class MonitorComponent implements OnInit {
     }
   };
   public lineChartType = 'line';
+
+  public chartColors: Array<any> = [
+    {
+      // first color
+      borderColor: "#36ff2f",
+      pointBackgroundColor: 'rgba(225,10,24,0.2)',
+      pointBorderColor: '#fff',
+    },
+    {
+      // second color
+      borderColor: '#1780cc',
+      pointBackgroundColor: 'rgba(225,10,24,0.2)',
+      pointBorderColor: '#fff',
+    }
+  ];
+  
 
   ngOnInit() {
 

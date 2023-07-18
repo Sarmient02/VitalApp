@@ -12,6 +12,7 @@ ion-header {
     padding: 5%;
     background-color: #ffffff;
     margin-bottom: 3%;
+    border: 2px solid var(--ion-color-light-shade);
 }
 
 .card-shadow{
@@ -61,18 +62,18 @@ ion-header {
   
 
   .blinking-shadow {
-    animation: blink-shadow 3s linear infinite;
+    animation: blink-shadow 2s linear infinite;
   }
   
   @keyframes blink-shadow {
     0% {
-      box-shadow: 0 0 40px var(--ion-color-danger-tint);
+      box-shadow: 0 0 100px var(--ion-color-danger-tint);
     }
     50% {
       box-shadow: none;
     }
     100% {
-      box-shadow: 0 0 40px var(--ion-color-danger-tint);
+      box-shadow: 0 0 100px var(--ion-color-danger-tint);
     }
   }
   
