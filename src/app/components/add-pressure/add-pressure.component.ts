@@ -63,7 +63,7 @@ export class AddPressureComponent  implements OnInit {
     } else {
       const alert = await this.alertController.create({
         header: '¡Error!',
-        message: 'Debes ingresar todos los valores ed la toma de presión.',
+        message: 'Debes ingresar todos los valores de la toma de presión.',
         buttons: ['Volver']
       });
   

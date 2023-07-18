@@ -19,6 +19,10 @@ export class ContactsService {
     [7.1406,-73.1242], [7.1384,-73.1229], [7.14044,-73.12027], [7.13934,-73.11921], [7.13966,-73.12291],
     [7.14205,-73.11870], [7.14049,-73.11606], [7.14048,-73.12243], [7.13927,-73.12027], [7.13738,-73.12031]
   ];
+  coordenadasBackup: any= [
+    [7.1406,-73.1242], [7.1384,-73.1229], [7.14044,-73.12027], [7.13934,-73.11921], [7.13966,-73.12291],
+    [7.14205,-73.11870], [7.14049,-73.11606], [7.14048,-73.12243], [7.13927,-73.12027], [7.13738,-73.12031]
+  ];
 
   contactosChanged = new Subject<Contacto[]>();
 
@@ -67,6 +71,9 @@ export class ContactsService {
 
   getRandomCoords() {
     let randomIndex = Math.floor(Math.random() * this.coordenadas.length);
+    if(this.coordenadas.length == 0) {
+      this.coordenadas = [...this.coordenadasBackup];
+    }
     let coords = this.coordenadas[randomIndex];
     this.coordenadas.splice(randomIndex, 1);
     return coords;

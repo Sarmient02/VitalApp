@@ -45,6 +45,10 @@ const routes: Routes = [
         loadChildren: () => import('../main-config/main-config.module').then( m => m.MainConfigPageModule)
       },
       {
+        path: 'control/synchronize',
+        loadChildren: () => import('../main-synchronize/main-synchronize.module').then( m => m.MainSynchronizePageModule)
+      },
+      {
         path: '',
         redirectTo: '/main-tabs/home',
         pathMatch: 'full'

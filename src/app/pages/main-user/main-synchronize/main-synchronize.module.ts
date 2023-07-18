@@ -8,12 +8,15 @@ import { MainSynchronizePageRoutingModule } from './main-synchronize-routing.mod
 
 import { MainSynchronizePage } from './main-synchronize.page';
 
+import { SharedModule } from '../../../shared/shared.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    MainSynchronizePageRoutingModule
+    MainSynchronizePageRoutingModule,
+    SharedModule
   ],
   declarations: [MainSynchronizePage]
 })
