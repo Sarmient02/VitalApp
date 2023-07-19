@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { LoginInfoComponent } from 'src/app/components/login-info/login-info.component';
+import { User } from 'src/app/services/user/user';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-login-screen',
@@ -10,15 +12,23 @@ import { LoginInfoComponent } from 'src/app/components/login-info/login-info.com
 })
 export class LoginScreenPage implements OnInit {
 
+  activeUser!: User;
+
   @ViewChild(LoginInfoComponent) 
   loginInfo!: LoginInfoComponent;
 
   constructor(
     private alertController: AlertController,
-    private router: Router
+    private router: Router,
+    private userService: UserService
   ) { }
 
   ngOnInit() {
+    this.activeUser = this.userService.getActiveUser();
+
+    this.userService.activeUserChanged.subscribe((activeUser) => {
+      this.activeUser = activeUser;
+    });
   }
 
   async loginUser(){
@@ -43,7 +53,12 @@ export class LoginScreenPage implements OnInit {
   }
 
   sendToHome(){
-    this.router.navigate(["main-tabs/home"]);
+    console.log(this.activeUser);
+    if (this.activeUser.userType == "main"){
+      this.router.navigate(["main-tabs/home"]);
+    } else {
+      this.router.navigate(["support-tabs/home"]);
+    }
   }
 
 }

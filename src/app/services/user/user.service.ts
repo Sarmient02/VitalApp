@@ -25,6 +25,8 @@ export class UserService {
     password: 'admin'
   };
 
+  activeUserChanged = new Subject<User>();
+
   constructor() { }
 
   getUsers(): User[] {
@@ -76,6 +78,8 @@ export class UserService {
     const index = this.users.findIndex(u => u.phone == phone);
     if (this.users[index]){
       if (this.users[index].phone == phone && this.users[index].password == password){
+        this.activeUser = this.users[index];
+        this.activeUserChanged.next(this.activeUser);
         return true;
       } else {
         return false;

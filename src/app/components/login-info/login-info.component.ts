@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user/user.service';
-import { User } from 'src/app/services/user/user';
 
 @Component({
   selector: 'app-login-info',
@@ -16,7 +15,8 @@ export class LoginInfoComponent  implements OnInit {
     private userService: UserService
   ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   onPhoneInput(event: Event){
     const inputElement = event.target as HTMLInputElement;
