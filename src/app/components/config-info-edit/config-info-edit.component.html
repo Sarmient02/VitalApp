@@ -1,36 +1,37 @@
-<div class="container card-shadow">
-  <div>
-    <ion-img class="contact-image" src="../../../assets/image/edilberto_large.png"></ion-img>
+
+<div class="main">
+  <div class="container card-shadow">
+    <div style="height: 50%; display: flex; justify-content: center; margin: 0 auto; align-items: center;">
+      <img class="contact-image" src="../../../assets/image/edilberto_large.png">
+    </div>
+    <div class="inputs">
+      <div class="row">
+        <ion-item>
+          <i class="material-symbols-rounded material-symbols-rounded-2">account_circle</i>
+          <ion-input class="inter" type="text" value="{{activeUser.name}}" *ngIf="activeUser !== undefined" (input)="onNameInput($event)"></ion-input>
+          <ion-input class="inter" type="text" placeholder="Nombre" *ngIf="activeUser === undefined" (input)="onNameInput($event)"></ion-input>
+        </ion-item>
+      </div>
+      <div class="row">
+        <ion-item>
+          <i class="material-symbols-rounded material-symbols-rounded-2">call</i>
+          <ion-input class="inter" type="text" value="{{activeUser.phone}}" *ngIf="activeUser !== undefined" (input)="onPhoneInput($event)"></ion-input>
+          <ion-input class="inter" type="text" placeholder="Teléfono" *ngIf="activeUser === undefined" (input)="onPhoneInput($event)"></ion-input>
+        </ion-item>
+      </div>
+      <div class="row">
+        <ion-item>
+          <i class="material-symbols-rounded material-symbols-rounded-2">vpn_key</i>
+          <ion-input class="inter" type="password" value="{{activeUser.password}}" *ngIf="activeUser !== undefined" (input)="onPasswordInput($event)"></ion-input>
+          <ion-input class="inter" type="password" placeholder="Nueva contraseña" *ngIf="activeUser === undefined" (input)="onPasswordInput($event)"></ion-input>
+        </ion-item>
+      </div>
+    </div>
   </div>
-
-
-  <br>
-
-  <div class="inputs">
-    <div class="row">
-      <ion-item>
-        <i class="material-symbols-rounded">account_circle</i>
-        <ion-input class="inter" type="text" value="{{activeUser.name}}" *ngIf="activeUser !== undefined" (input)="onNameInput($event)"></ion-input>
-        <ion-input class="inter" type="text" placeholder="Nombre" *ngIf="activeUser === undefined" (input)="onNameInput($event)"></ion-input>
-      </ion-item>
-    </div>
-    <div class="row">
-      <ion-item>
-        <i class="material-symbols-rounded">call</i>
-        <ion-input class="inter" type="number" value="{{activeUser.phone}}" *ngIf="activeUser !== undefined" (input)="onPhoneInput($event)"></ion-input>
-        <ion-input class="inter" type="number" placeholder="Teléfono" *ngIf="activeUser === undefined" (input)="onPhoneInput($event)"></ion-input>
-      </ion-item>
-    </div>
-    <div class="row">
-      <ion-item>
-        <i class="material-symbols-rounded">badge</i>
-        <ion-input class="inter" type="password" value="{{activeUser.password}}" *ngIf="activeUser !== undefined" (input)="onPasswordInput($event)"></ion-input>
-        <ion-input class="inter" type="password" placeholder="Nueva contraseña" *ngIf="activeUser === undefined" (input)="onPasswordInput($event)"></ion-input>
-      </ion-item>
-    </div>
-  </div>
+  
+  
+  
 </div>
-
 <ion-button class="save-button" (click)="clickedSaveChanges()">
   <i class="material-symbols-rounded">save_as</i>
   &nbsp;

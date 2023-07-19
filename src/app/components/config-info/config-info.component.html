@@ -1,38 +1,27 @@
 <div class="container card-shadow">
-  <div>
-    <ion-img class="contact-image" src="../../../assets/image/edilberto_large.png"></ion-img>
+  <div style="height: 50%; display: flex; justify-content: center; margin: 0 auto; align-items: center;">
+    <img class="contact-image" src="../../../assets/image/edilberto_large.png">
   </div>
-
   <div class="inputs">
+    <div class="spacer"></div>
     <div class="row">
-      <ion-label class="para-description">
-        Nombre
-      </ion-label>
+      <div class="">
+        <span class="inter subtitle">Nombre</span>
+      </div>
+      <div class="">
+        <span class="inter title">{{activeUser.name}}</span>
+      </div>
     </div>
+    <div class="spacer"></div>
     <div class="row">
-      <ion-label class="para-title" *ngIf="activeUser!== undefined">
-        {{activeUser.name}}
-      </ion-label>
-      <ion-label class="para-title" *ngIf="activeUser === undefined">
-        No Disponible
-      </ion-label>
+      <div class="">
+        <span class="inter subtitle">Teléfono</span>
+      </div>
+      <div class="">
+        <span class="inter title">{{activeUser.phone}}</span>
+      </div>
     </div>
-
-    <br>
-
-    <div class="row">
-      <ion-label class="para-description">
-        Teléfono
-      </ion-label>
-    </div>
-    <div class="row">
-      <ion-label class="para-title" *ngIf="activeUser!== undefined">
-        {{activeUser.phone}}
-      </ion-label>
-      <ion-label class="para-title" *ngIf="activeUser === undefined">
-        No Disponible
-      </ion-label>
-    </div>
+    <div class="spacer"></div>
   </div>
 </div>
 

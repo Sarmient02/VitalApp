@@ -1,33 +1,14 @@
-.botones {
-    display: flex;
-    justify-content: space-around;
-    width: 90%;
-    margin: 0 auto;
-    padding-bottom: 4%;
+ion-header {
+    box-shadow: none;
+    background-color: var(--ion-color-light);
 }
 
-.btn {
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 25px;
-  height: 8vh;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  text-transform: none;
-  text-size-adjust: 80%;
-  --border-radius: 25px;
-  width: 100%;
-}
-
-.paragraph{
-    text-align: center;
-    padding-bottom: 3%;
-}
-
-.para-title{
-    font-size: larger;
-    font-weight: bolder;
+ion-button::part(native) span.button-inner {
+    flex-direction: column !important;
+  }
+  
+  .card-shadow{
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
 
 .next-button{
@@ -48,3 +29,120 @@
 
     margin-bottom: 3%;
 }
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+}
+
+.spacer {
+    margin: auto;
+}
+
+span .inter {
+    font-weight: 900;
+}
+
+.btn {
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 25px;
+    height: 16vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-transform: none;
+    text-size-adjust: 80%;
+    --border-radius: 25px;
+    width: 75%;
+}
+
+#progress {
+    position: relative;
+    margin-bottom: 30px;   
+  }
+
+  #progress-bar {
+    position: absolute;
+    background: lightseagreen;
+    height: 5px;
+    width: 0%;
+    top: 50%;
+    left: 0;
+  }
+
+  #progress-num {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  #progress-num::before {
+    content: "";
+    background-color: lightgray;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 5px;
+    width: 100%;
+    z-index: -1;
+  }
+
+  #progress-num .step {
+    border: 3px solid lightgray;
+    border-radius: 100%;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    background-color: #fff;
+    font-family: sans-serif;
+    font-size: 14px;    
+    position: relative;
+    z-index: 1;
+  }
+
+  #progress-num .step.active {
+    border-color: lightseagreen;
+    background-color: lightseagreen;
+    color: #fff;
+  }
+
+  .type-selector {
+    border-radius: 25px;
+    height: 65vh;
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .type-selector span.inter {
+    font-size: 19px;
+    font-weight: bolder;
+    margin: 0 auto;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 2.5vh;
+  }
+
+  .spacer {
+    margin: auto;
+  }
+
+  .unactive {
+    background-color: white;
+  }
+
+  .active {
+    background-color: var(--ion-color-primary);
+    color: white;
+    box-shadow: rgba(0, 0, 0, 0.356) 0px 4px 10px -1px, rgba(0, 0, 0, 0.329) 0px 2px 4px -1px;
+    transform: scale(1.01);
+  }
+  

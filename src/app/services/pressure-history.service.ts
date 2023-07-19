@@ -141,7 +141,7 @@ export class PressureHistoryService {
   pressureChanged = new Subject<Pressure[]>();
 
   getPressures(): Pressure[] {
-    return this.pressures;
+    return this.sortPressures(this.pressures);
   }
 
   getNewID(): number {
@@ -149,11 +149,20 @@ export class PressureHistoryService {
     return this.ID;
   }
 
+  sortPressures(presiones: Pressure[]): Pressure[] {
+    return presiones.sort((a, b) => {
+      const dateA = a.date.split('-').reverse().join('-');
+      const dateB = b.date.split('-').reverse().join('-');
+      return new Date(dateB).getTime()- new Date(dateA).getTime() ;
+    });
+    
+  }    
+
   addPressure(pressure: Pressure): void {
     console.log("creating new pressure record: ", pressure)
     pressure.id = this.getNewID();
     this.pressures.push(pressure);
-    this.pressureChanged.next(this.pressures);
+    this.pressureChanged.next(this.sortPressures(this.pressures));
   }
 
 

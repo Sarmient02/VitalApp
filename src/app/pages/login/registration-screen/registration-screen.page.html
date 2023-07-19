@@ -3,12 +3,21 @@
 </ion-header>
 
 <ion-content color = "light">
-  <div class="progress-bar">
+  <div class="main">
+      <div id="progress" style="width: 75%; margin: 5% auto;">
+        <div id="progress-bar"></div>
+        <ul id="progress-num">
+          <li class="step active"></li>
+          <li class="step"></li>
+          <li class="step"></li>
+        </ul>
+      </div>
+  
+    <app-registration-info></app-registration-info>
+
+    <ion-button id="next-button" class="btn" (click)="clickedNext()">
+      <span class="inter" style="font-weight: 600; font-size: 20px;">Siguiente</span>
+    </ion-button>
   </div>
-
-  <app-registration-info></app-registration-info>
-
-  <ion-button id="next-button" class = "next-button" (click)="clickedNext()">
-    Siguiente
-  </ion-button>
+  
 </ion-content>

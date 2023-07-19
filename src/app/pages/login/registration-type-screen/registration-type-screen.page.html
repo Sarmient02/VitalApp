@@ -3,31 +3,32 @@
 </ion-header>
 
 <ion-content color="light">
-  <div class="paragraph">
-    <ion-label class="para-title">
-      ¿Qué tipo de usuario eres?
-    </ion-label>
-  </div>
-  
-  <div class="botones">
-    <div style="width: 45%;">
-      <ion-button [color]="mainButtonColor" class="btn" expand="block" (click)="clickedMainType()">
-        <span class="material-symbols-rounded toolbar-icons">person_3</span>
-        &nbsp;
-        <span class="inter" style="margin-left: 2vw;">Principal</span>
-      </ion-button>
+  <div class="main">
+    <div id="progress" style="width: 75%; margin: 5% auto;">
+      <div id="progress-bar"></div>
+      <ul id="progress-num">
+        <li class="step active"></li>
+        <li class="step active"></li>
+        <li class="step"></li>
+      </ul>
     </div>
-    <div class="spacer"></div>
-    <div style="width: 45%;">
-      <ion-button [color]="contactButtonColor" class="btn" expand="block" (click)="clickedContactType()">
-        <span class="material-symbols-rounded toolbar-icons">contact_phone</span>
-        &nbsp;
-        <span class="inter" style="margin-left: 2vw;">Contacto</span>
-      </ion-button>
-    </div>
-  </div>
 
-  <ion-button id="next-button" class = "next-button" (click)="clickedNext()">
-    Siguiente
-  </ion-button>
+    <div style="display: flex; width: 100%;">
+      <div class="spacer"></div>
+      <div class="type-selector unactive card-shadow" (click)="clickedMainType()" [ngClass]="{'active': mainButtonColor === 'primary'}">
+        <div class="spacer"></div>
+        <span class="inter">Principal</span>
+      </div>
+      <div class="spacer"></div>
+      <div class="type-selector unactive card-shadow" (click)="clickedContactType()" [ngClass]="{'active': contactButtonColor === 'primary'}">
+        <div class="spacer"></div>
+        <span class="inter">Contacto de Emergencia</span>
+      </div>
+      <div class="spacer"></div>
+    </div>
+
+    <ion-button id="next-button" class="btn" (click)="clickedNext()">
+      <span class="inter" style="font-weight: 600; font-size: 20px;">Siguiente</span>
+    </ion-button>
+  </div>
 </ion-content>

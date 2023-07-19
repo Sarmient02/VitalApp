@@ -32,11 +32,6 @@
     background-color: #ffffff;
 }
 
-span.inter{
-    font-weight: 900;
-}
-
-
 .card-shadow{
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
@@ -81,7 +76,7 @@ ion-button::part(native) span.button-inner {
     margin-left: auto;
     margin-right: auto;
     border-radius: 25px;
-    height: 8vh;
+    height: 16vw;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -92,7 +87,7 @@ ion-button::part(native) span.button-inner {
 }
 
 span .inter {
-    font-weight: 900;
+    font-weight: 600;
 }
 
 ion-button {

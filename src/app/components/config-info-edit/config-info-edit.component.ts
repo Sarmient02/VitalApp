@@ -24,7 +24,8 @@ export class ConfigInfoEditComponent  implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.activeUser = this.userService.getActiveUser()
+    this.activeUser = this.userService.getActiveUser();
+    console.log(this.activeUser)
   }
 
   onNameInput(event: Event){
@@ -49,6 +50,9 @@ export class ConfigInfoEditComponent  implements OnInit {
       buttons: ['OK']
     });
     // No security checks!
+    if (this.newUserName == undefined || this.newUserName == "") this.newUserName = this.activeUser.name;
+    if (this.newUserPhone == undefined || this.newUserPhone == "") this.newUserPhone = this.activeUser.phone;
+    if (this.newUserPassword == undefined || this.newUserPassword == "") this.newUserPassword = this.activeUser.password;
     this.activeUser.name = this.newUserName;
     this.activeUser.phone = this.newUserPhone;
     this.activeUser.password = this.newUserPassword;
