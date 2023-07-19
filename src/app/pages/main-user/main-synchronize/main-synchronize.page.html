@@ -3,7 +3,26 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" color="light">
-  <div class="container">
-    
+  <div class="container card-shadow">
+    <div style="display: flex; align-items: center; margin: 0 auto; justify-content: center; height: 25vh;" >
+      <i class="material-symbols-rounded bluet_icon blue">bluetooth_searching</i>
+    </div>
+    <div style="justify-content: center; margin: 2.5% auto;">
+      <span class="inter" style="font-weight: bold;">Dispositivos cercanos disponibles</span>
+    </div>
+    <div style="overflow: scroll;">
+      <ion-list class="" lines="full">
+        <ion-item button *ngFor="let device of pulseras" (click)="clickConnectDevice(device.id, device)">
+          <div class="icono">
+            <i *ngIf="device.connected" class="material-symbols-rounded toolbar-icons blue">bluetooth_connected</i>
+            <i *ngIf="!device.connected" class="material-symbols-rounded toolbar-icons gray">bluetooth</i>
+          </div>
+          <ion-label>
+            <h2>{{device.name}}</h2>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
   </div>
+  
 </ion-content>

@@ -1,3 +1,98 @@
 ion-header {
     box-shadow: none;
 }
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 25px;
+    max-width: 90%;
+    height: 95%;
+    margin-top: 5%;
+    overflow: scroll;
+    background-color: #ffffff;
+    align-items: center;
+    display: flex;
+  flex-direction: column;
+}
+
+.icono {
+    margin-right: 5%;
+}
+
+h2 {
+    font-weight: bold;
+  }
+
+.green {
+    color: var(--ion-color-success);
+}
+
+.gray {
+    color: var(--ion-color-medium-tint);
+}
+
+.blue {
+    color: var(--ion-color-primary-tint);
+}
+
+.bluet_icon{
+    font-size: 30vw;
+    animation: pulse 3s infinite;
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+
+  @keyframes pulse-waves {
+    0% {
+      transform: scale(0.5);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1.5);
+      opacity: 0;
+    }
+  }
+  
+  .bluet_icon::before{
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: var(--ion-color-light);
+    animation: pulse-waves 2s infinite;
+    animation-delay: -0.25s;
+    z-index: -1;
+  }
+  .bluet_icon::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #0953ff2c;
+    animation: pulse-waves 2s infinite;
+    animation-delay: -0.5s;
+    z-index: -1;
+    top: 0;
+    left: 0;
+  }
+  
+  
+  
