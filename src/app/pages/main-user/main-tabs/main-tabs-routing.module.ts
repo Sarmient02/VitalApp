@@ -13,7 +13,12 @@ const routes: Routes = [
         children: [
           { path: '', loadChildren: () => import('../main-home/main-home.module').then( m => m.MainHomePageModule) },
           { path: 'alert', loadChildren: () => import('../main-alert/main-alert.module').then( m => m.MainAlertPageModule) },
-          { path: 'config', loadChildren: () => import('../main-config/main-config.module').then( m => m.MainConfigPageModule) },
+          { path: 'config',
+            children: [
+              { path: '', loadChildren: () => import('../main-config/main-config.module').then( m => m.MainConfigPageModule) },
+              { path: 'edit', loadChildren: () => import('../main-config-edit/main-config-edit.module').then( m => m.MainConfigEditPageModule) },
+            ]
+        },
         ]
       },
       {
@@ -30,13 +35,6 @@ const routes: Routes = [
           { path: '', loadChildren: () => import('../main-control/main-control.module').then( m => m.MainControlPageModule) },
           { path: 'history', loadChildren: () => import('../main-pressure-history/main-pressure-history.module').then( m => m.MainPressureHistoryPageModule) },
           { path: 'synchronize', loadChildren: () => import('../main-synchronize/main-synchronize.module').then( m => m.MainSynchronizePageModule) },
-        ]
-      },
-      {
-        path: 'config',
-        children: [
-          { path: '', loadChildren: () => import('../main-config/main-config.module').then( m => m.MainConfigPageModule)},
-          { path: 'edit', loadChildren: () => import('../main-config-edit/main-config-edit.module').then( m => m.MainConfigEditPageModule)}
         ]
       },
       {

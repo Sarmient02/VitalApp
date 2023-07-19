@@ -18,6 +18,11 @@ ion-item {
     --border-style: none;
 }
 
+.material-symbols-rounded{
+  color: gray;
+  font-size: xx-large;
+}
+
 ion-item {
     border-radius: 5px;
     border: 1px solid rgba(0, 0, 0, 0.15);
@@ -71,4 +76,10 @@ ion-input[disabled] {
   .material-symbols-rounded.medical-icon.active {
     color: var(--ion-color-danger);
   }
-  
+
+  .inputs {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    margin: 2% 0;
+}

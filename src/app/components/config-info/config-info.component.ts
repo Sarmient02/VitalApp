@@ -26,6 +26,6 @@ export class ConfigInfoComponent  implements OnInit {
   }
 
   clickedEditProfile(){
-    this.router.navigate(['main-tabs/config/edit'])
+    this.router.navigate(['main-tabs/home/config/edit'])
   }
 }

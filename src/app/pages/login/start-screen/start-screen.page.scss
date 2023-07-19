@@ -1,6 +1,6 @@
 .container {
-    max-width: 90%;
-    margin: 15% auto;
+    max-width: 75%;
+    margin: 5% auto;
     display: flex;
     flex-direction: column;
     border-radius: 25px;
@@ -8,10 +8,21 @@
     padding: 5%;
     background-color: #ffffff;
     aspect-ratio: 1 / 1;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
 }
 
 .sub-container {
-    max-width: 90%;
+    width: 80%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -19,7 +30,10 @@
     height: fit-content;
     padding: 5%;
     background-color: #ffffff;
-    margin-bottom: 3%;
+}
+
+span.inter{
+    font-weight: 900;
 }
 
 
@@ -38,8 +52,20 @@
 }
 
 .app-logo{
-    height: 90%;
+    animation: pulse 2s infinite;
 }
+
+@keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
 
 .app-title{
     font-size: xx-large;
@@ -55,17 +81,20 @@ ion-button::part(native) span.button-inner {
     margin-left: auto;
     margin-right: auto;
     border-radius: 25px;
-    max-width: 90%;
-    height: 15vw;
+    height: 8vh;
     display: flex;
     justify-content: space-around;
     align-items: center;
     text-transform: none;
     text-size-adjust: 80%;
     --border-radius: 25px;
-    width: 90%;
+    width: 75%;
 }
 
-.inter {
+span .inter {
     font-weight: 900;
+}
+
+ion-button {
+    margin: 10% auto;
 }

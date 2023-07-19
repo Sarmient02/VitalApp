@@ -23,7 +23,7 @@ export class HeaderComponent  implements OnInit {
 
   @Input() title = 'Inicio';
 
-  @Input() ruta = 'home';
+  @Input() ruta = 'main-tabs/home';
   
   ngOnInit(
   ) {}

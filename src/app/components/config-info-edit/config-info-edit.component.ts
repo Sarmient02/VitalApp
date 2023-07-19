@@ -54,6 +54,6 @@ export class ConfigInfoEditComponent  implements OnInit {
     this.activeUser.password = this.newUserPassword;
     await alert.present();
     const { role } = await alert.onDidDismiss();
-    this.router.navigate(['main-tabs/config']);
+    this.router.navigate(['main-tabs/home/config']);
   }
 }

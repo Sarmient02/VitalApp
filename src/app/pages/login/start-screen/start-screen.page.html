@@ -1,24 +1,20 @@
-<ion-header [translucent]="true">
-</ion-header>
-
-<ion-content color="light">
-  <div class="container card-shadow">
-    <div class="logo-container">
+<ion-content>
+  <div class="main">
+    <div class="container card-shadow">
       <ion-img class="app-logo" src="assets/icon/vital_logo.svg"></ion-img>
-      <ion-label class="app-title">Vital</ion-label>
+      <div class="spacer"></div>
+      <ion-label class="app-title inter" style="font-size: 42px; font-weight: 900;">Vital</ion-label>
+    </div>
+  
+    <div class="sub-container card-shadow">
+      <ion-button class="btn" expand="block" (click)="goToPage('login-screen')">
+        <span class="inter" style="font-weight: 900; font-size: 18px;">Iniciar sesión</span>
+      </ion-button>
+  
+      <ion-button class="btn" expand="block" (click)="goToPage('registration-screen')">
+        <span class="inter" style="font-weight: 900; font-size: 18px;">Registrarse</span>
+      </ion-button>
     </div>
   </div>
-
-  <div class="sub-container card-shadow">
-    <ion-button class="btn" expand="block" (click)="goToPage('login-screen')">
-      <span class="inter">Iniciar Sesión</span>
-    </ion-button>
-
-    <br>
-    <br>
-
-    <ion-button class="btn" expand="block" (click)="goToPage('registration-screen')">
-      <span class="inter">Registrarse</span>
-    </ion-button>
-  </div>
+  
 </ion-content>
