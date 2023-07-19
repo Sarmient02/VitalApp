@@ -7,7 +7,7 @@
       <span class="inter" style="margin-left: 3vw;">Ver historial</span>
     </ion-button>
   </div>
-  <div class="valores">
+  <div class="valores" *ngIf="activeUser.userType === 'main'">
     <div class="row">
       <label class="input-title inter card-shadow">
         Ritmo cardíaco
@@ -33,7 +33,7 @@
       </ion-input>
     </div>
   </div>
-  <div>
+  <div *ngIf="activeUser.userType === 'main'">
     <ion-button color="danger" class="btn" expand="block" (click)="clickedAddPressure()">
       <span class="material-symbols-rounded toolbar-icons">cardiology</span>
       &nbsp;

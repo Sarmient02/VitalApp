@@ -1,0 +1,25 @@
+<ion-list class="contact-list card-shadow" lines="full">
+  <div *ngFor="let contact of contactos">
+    <div *ngIf="activeUser.userType === 'main' || (activeUser.userType === 'support' && contact.type === 'support')">
+      <ion-item button (click)="showContactHistory(contact)">
+        <ion-avatar slot="start">
+          <img src="{{contact.image}}">
+        </ion-avatar>
+        <ion-label>
+          <h2>{{contact.name}}</h2>
+          <div class="subtitulo">
+            <span class="nick">{{contact.nickname}}</span>
+            <div class="separator"></div>
+            <span class="phone">{{contact.phone}}</span>
+          </div>
+        </ion-label>
+        <div class="icono">
+          <span *ngIf="contact.type === 'support'"
+            class="material-symbols-rounded toolbar-icons support">diversity_1</span>
+          <span *ngIf="contact.type === 'emergency'"
+            class="material-symbols-rounded toolbar-icons emergency">medical_services</span>
+        </div>
+      </ion-item>
+    </div>
+  </div>
+</ion-list>

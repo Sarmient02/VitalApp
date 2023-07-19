@@ -122,7 +122,11 @@ const routes: Routes = [
   {
     path: 'support-pressure-history',
     loadChildren: () => import('./pages/support-user/support-pressure-history/support-pressure-history.module').then( m => m.SupportPressureHistoryPageModule)
+  },  {
+    path: 'support-control-history',
+    loadChildren: () => import('./pages/support-user/support-control-history/support-control-history.module').then( m => m.SupportControlHistoryPageModule)
   }
+
 
 
 

@@ -4,6 +4,8 @@ import { Chart, LineController, LineElement, PointElement, LinearScale, Category
 import { ChartService } from 'src/app/services/chart.service';
 import { ChartDataset, ChartOptions } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
+import { User } from 'src/app/services/user/user';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-monitor',
@@ -16,9 +18,12 @@ export class MonitorComponent implements OnInit {
   latestHeartbeat: number | undefined;
   @ViewChild(BaseChartDirective) chart!: BaseChartDirective;
 
+  activeUser!: User;
+
   constructor(
     private router: Router,
     private chartService: ChartService,
+    private userService: UserService
   ) { }
 
   public lineChartData: any[] = [
@@ -82,6 +87,7 @@ export class MonitorComponent implements OnInit {
   
 
   ngOnInit() {
+    this.activeUser = this.userService.getActiveUser();
 
     // Initialize the chart data with the first 30 data points
     for (let i = 0; i < 30; i++) {
@@ -133,6 +139,8 @@ export class MonitorComponent implements OnInit {
   }
 
   goToSync() {
-    this.router.navigateByUrl('main-tabs/control/synchronize');
+    if(this.activeUser.userType == "main"){
+      this.router.navigateByUrl('main-tabs/control/synchronize');
+    }
   }
 }

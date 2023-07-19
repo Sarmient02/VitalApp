@@ -33,8 +33,12 @@ const routes: Routes = [
         path: 'control',
         children: [
           { path: '', loadChildren: () => import('../support-control/support-control.module').then( m => m.SupportControlPageModule) },
-          { path: 'history', loadChildren: () => import('../support-pressure-history/support-pressure-history.module').then( m => m.SupportPressureHistoryPageModule) },
-          //{ path: 'synchronize', loadChildren: () => import('../main-synchronize/main-synchronize.module').then( m => m.MainSynchronizePageModule) },
+          { path: 'history',
+            children:[
+              {path: '', loadChildren: () => import('../support-control-history/support-control-history.module').then( m => m.SupportControlHistoryPageModule)},
+              { path: 'pressure', loadChildren: () => import('../support-pressure-history/support-pressure-history.module').then( m => m.SupportPressureHistoryPageModule) },
+            ]
+          }
         ]
       },
       {

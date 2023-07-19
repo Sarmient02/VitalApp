@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { SupportControlPageRoutingModule } from './support-control-routing.module';
+import { SupportControlHistoryPageRoutingModule } from './support-control-history-routing.module';
 
-import { SupportControlPage } from './support-control.page';
+import { SupportControlHistoryPage } from './support-control-history.page';
 
 import { SharedModule } from 'src/app/shared/shared.module';
 
@@ -15,9 +15,9 @@ import { SharedModule } from 'src/app/shared/shared.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    SupportControlPageRoutingModule,
+    SupportControlHistoryPageRoutingModule,
     SharedModule
   ],
-  declarations: [SupportControlPage]
+  declarations: [SupportControlHistoryPage]
 })
-export class SupportControlPageModule {}
+export class SupportControlHistoryPageModule {}

@@ -4,6 +4,8 @@ import { AlertController } from '@ionic/angular';
 import { Pressure } from 'src/app/services/pressure';
 import { DatePipe } from '@angular/common';
 import { PressureHistoryService } from 'src/app/services/pressure-history.service';
+import { User } from 'src/app/services/user/user';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-add-pressure',
@@ -17,12 +19,15 @@ export class AddPressureComponent  implements OnInit {
     private router: Router,
     private alertController: AlertController,
     private datePipe: DatePipe,
-    private pressureController: PressureHistoryService
+    private pressureController: PressureHistoryService,
+    private userService: UserService
   ) { }
 
   systolicPressure: boolean = false;
   diastolicPressure: boolean = false;
   heartbeatPressure: boolean = false;
+
+  activeUser!: User;
 
   date: string = '';
 
@@ -43,11 +48,16 @@ export class AddPressureComponent  implements OnInit {
     } else {
       // Handle the case where the transformed date is null
     }
+    this.activeUser = this.userService.getActiveUser();
   }
   
 
   goToHistory(){
-    this.router.navigate(['main-tabs/control/history']);
+    if (this.activeUser.userType == "main"){
+      this.router.navigate(['main-tabs/control/history']);
+    } else {
+      this.router.navigate(['support-tabs/control/history/pressure']);
+    }
   }
 
   async clickedAddPressure(): Promise<void> {

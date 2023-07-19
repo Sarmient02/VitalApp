@@ -5,11 +5,11 @@ import { User } from 'src/app/services/user/user';
 import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
-  selector: 'app-contact-list',
-  templateUrl: './contact-list.component.html',
-  styleUrls: ['./contact-list.component.scss'],
+  selector: 'app-control-contacts',
+  templateUrl: './control-contacts.component.html',
+  styleUrls: ['./control-contacts.component.scss'],
 })
-export class ContactListComponent  implements OnInit {
+export class ControlContactsComponent  implements OnInit {
 
   @Input() contactos: Contacto[] = [];
 
@@ -24,19 +24,13 @@ export class ContactListComponent  implements OnInit {
     this.activeUser = this.userService.getActiveUser();
   }
 
-  editPressedContact(contact: Contacto): void{
+  showContactHistory(contact: Contacto): void{
     if(this.activeUser.userType == "main"){
       this.router.navigate(['main-tabs/contacts/edit'],
       {queryParams: contact})
     } else {
-      console.log(this.router.url);
-      if(this.router.url == "/support-tabs/control"){
-        this.router.navigate(['support-tabs/control/history'],
-        {queryParams: contact})
-      } else {
-        this.router.navigate(['support-tabs/contacts/edit'],
+      this.router.navigate(['support-tabs/contacts/edit'],
       {queryParams: contact})
-      }
     }
   }
 
