@@ -1,5 +1,6 @@
 <div class="container">
   <div class="layer1"></div>
   <div class="layer2"></div>
-  <ion-button shape="circle" color="danger" (click)="goToAlert()"><span class="inter">Enviar<br>Alerta</span></ion-button>
+  <ion-button shape="circle" color="danger" (click)="goToAlert()" *ngIf="activeUser.userType == 'main'"><span class="inter">Enviar<br>Alerta</span></ion-button>
+  <ion-button shape="circle" color="danger" (click)="goToAlert()" *ngIf="activeUser.userType == 'support'"><span class="inter">Ver<br>Alertas</span></ion-button>
 </div>

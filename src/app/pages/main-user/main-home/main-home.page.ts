@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/services/user/user';
 import { UserService } from 'src/app/services/user/user.service';
 
@@ -10,19 +9,9 @@ import { UserService } from 'src/app/services/user/user.service';
 })
 export class MainHomePage implements OnInit {
 
-  user: User = {
-    id: 0,
-    name: '',
-    phone: '',
-    password: '',
-    userType: ''
-  };
-
   constructor(
-    private userService: UserService,
   ) { }
 
   ngOnInit() {
-    this.user = this.userService.getActiveUser();
   }
 }

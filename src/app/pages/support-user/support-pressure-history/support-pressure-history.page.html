@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <app-header [title]="'Historial'" [ruta]="'support-tabs/control'"></app-header>
+</ion-header>
+
+<ion-content [fullscreen]="true" color="light">
+  <div class="container">
+    <div class="rows" *ngFor="let pressure of pressures">
+      <div class="monitors">
+        <div class="latest">
+          <i class="material-symbols-rounded toolbar-icons">keyboard_double_arrow_up</i> <span class="inter">{{pressure.systolic | number: '1.0-0'}}</span>
+        </div>
+        <span class="spacer"></span>
+        <div class="heartbeat">
+          <i class="material-symbols-rounded toolbar-icons">ecg_heart</i> <span class="inter">{{pressure.heartbeat | number: '1.0-0'}} ppm</span>
+        </div>
+        <span class="spacer"></span>
+        <div class="latest">
+          <i class="material-symbols-rounded toolbar-icons">keyboard_double_arrow_down</i> <span class="inter">{{pressure.diastolic | number: '1.0-0'}}</span>
+        </div>
+      </div>
+      <div class="row2">
+        <span class="inter" style="font-size: 12px;">{{pressure.date}}</span>
+      </div>
+    </div>
+  </div>
+</ion-content>

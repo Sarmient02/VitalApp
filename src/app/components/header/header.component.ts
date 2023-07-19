@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { Location } from '@angular/common';
-import { CommonModule } from '@angular/common';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
+import { User } from 'src/app/services/user/user';
+import { UserService } from 'src/app/services/user/user.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -13,26 +13,30 @@ export class HeaderComponent  implements OnInit {
   @Output()
   configEvent: EventEmitter<any> = new EventEmitter<any>();
 
-  userId!: number;
+  activeUser!: User;
 
   constructor(
-    private location: Location,
     private router: Router,
-    private route: ActivatedRoute
+    private userService: UserService
     ) { }
 
   @Input() title = 'Inicio';
 
   @Input() ruta = 'main-tabs/home';
   
-  ngOnInit(
-  ) {}
+  ngOnInit() {
+    this.activeUser = this.userService.getActiveUser();
+  }
 
   myBackButton() {
     this.router.navigate([this.ruta]);
   }
 
   clickedConfig(){
-    this.router.navigate(['main-tabs/home/config']);
+    if(this.activeUser.userType == "main"){
+      this.router.navigate(['main-tabs/home/config']);
+    } else {
+      this.router.navigate(['support-tabs/home/config']);
+    }
   }
 }

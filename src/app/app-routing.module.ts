@@ -98,7 +98,32 @@ const routes: Routes = [
   {
     path: 'main-config-edit',
     loadChildren: () => import('./pages/main-user/main-config-edit/main-config-edit.module').then( m => m.MainConfigEditPageModule)
+  },
+  {
+    path: 'support-contact-add',
+    loadChildren: () => import('./pages/support-user/support-contact-add/support-contact-add.module').then( m => m.SupportContactAddPageModule)
+  },
+  {
+    path: 'support-alert',
+    loadChildren: () => import('./pages/support-user/support-alert/support-alert.module').then( m => m.SupportAlertPageModule)
+  },
+  {
+    path: 'support-config',
+    loadChildren: () => import('./pages/support-user/support-config/support-config.module').then( m => m.SupportConfigPageModule)
+  },
+  {
+    path: 'support-config-edit',
+    loadChildren: () => import('./pages/support-user/support-config-edit/support-config-edit.module').then( m => m.SupportConfigEditPageModule)
+  },
+  {
+    path: 'support-contact-edit',
+    loadChildren: () => import('./pages/support-user/support-contact-edit/support-contact-edit.module').then( m => m.SupportContactEditPageModule)
+  },
+  {
+    path: 'support-pressure-history',
+    loadChildren: () => import('./pages/support-user/support-pressure-history/support-pressure-history.module').then( m => m.SupportPressureHistoryPageModule)
   }
+
 
 
 

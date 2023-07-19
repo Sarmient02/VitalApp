@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from 'src/app/services/user/user';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-alert-button',
@@ -8,14 +10,23 @@ import { Router } from '@angular/router';
 })
 export class AlertButtonComponent  implements OnInit {
 
+  activeUser!: User;
+
   constructor(
     private router: Router,
+    private userService: UserService
   ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.activeUser = this.userService.getActiveUser();
+  }
 
   goToAlert(){
-    this.router.navigate(['home/alert']);
+    if(this.activeUser.userType == "main"){
+      this.router.navigate(['main-tabs/home/alert']);
+    } else {
+      this.router.navigate(['support-tabs/home/alert']);
+    }
   }
 
 }

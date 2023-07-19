@@ -1,13 +1,14 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>support-contacts</ion-title>
-  </ion-toolbar>
+  <app-header [title]="'Contactos'" [ruta]="'support-tabs/home'"></app-header>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">support-contacts</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content color = "light">
+  <ion-button class="btn" expand="block" (click)="pickContact()">
+    <span class="material-symbols-rounded toolbar-icons">person_add</span>
+    &nbsp;
+    <div></div>
+    <span class="inter" style="margin-left: 3vw;">Añadir Contacto</span>
+  </ion-button>
+
+  <app-contact-list [contactos]="contacts"></app-contact-list>
 </ion-content>

@@ -26,6 +26,10 @@ export class ConfigInfoComponent  implements OnInit {
   }
 
   clickedEditProfile(){
-    this.router.navigate(['main-tabs/home/config/edit'])
+    if (this.activeUser.userType == "main"){
+      this.router.navigate(['main-tabs/home/config/edit'])
+    } else {
+      this.router.navigate(['support-tabs/home/config/edit'])
+    }
   }
 }

@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Contacto } from 'src/app/services/contacto';
+import { User } from 'src/app/services/user/user';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-contact-list',
@@ -11,15 +13,25 @@ export class ContactListComponent  implements OnInit {
 
   @Input() contactos: Contacto[] = [];
 
-  constructor(private router: Router) { }
+  activeUser!: User;
+
+  constructor(
+    private router: Router,
+    private userService: UserService
+  ) { }
 
   ngOnInit(): void {
-    
+    this.activeUser = this.userService.getActiveUser();
   }
 
   editPressedContact(contact: Contacto): void{
-    this.router.navigate(['main-tabs/contacts/edit'],
-    {queryParams: contact})
+    if(this.activeUser.userType == "main"){
+      this.router.navigate(['main-tabs/contacts/edit'],
+      {queryParams: contact})
+    } else {
+      this.router.navigate(['support-tabs/contacts/edit'],
+      {queryParams: contact})
+    }
   }
 
 }

@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <app-header [title]="'Contacto'" [ruta]="'support-tabs/contacts'"></app-header>
+</ion-header>
+
+<ion-content color = "light">
+  <app-contact-info [contact]="contact"></app-contact-info>
+
+  <div class="botones">
+    <div style="width: 45%;">
+      <ion-button color="primary" class="btn" expand="block" (click)="editPressedContact()">
+        <span class="material-symbols-rounded toolbar-icons">save_as</span>
+        &nbsp;
+        <span class="inter" style="margin-left: 2vw;">Guardar</span>
+      </ion-button>
+    </div>
+    <div class="spacer"></div>
+    <div style="width: 45%;">
+      <ion-button color="danger" class="btn" expand="block" (click)="deletePressedContact()">
+        <span class="material-symbols-rounded toolbar-icons">delete</span>
+        &nbsp;
+        <span class="inter" style="margin-left: 2vw;">Eliminar</span>
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

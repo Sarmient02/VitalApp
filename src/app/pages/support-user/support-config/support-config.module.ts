@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { SupportHomePageRoutingModule } from './support-home-routing.module';
+import { SupportConfigPageRoutingModule } from './support-config-routing.module';
 
-import { SupportHomePage } from './support-home.page';
+import { SupportConfigPage } from './support-config.page';
 
 import { SharedModule } from 'src/app/shared/shared.module';
 
@@ -15,9 +15,9 @@ import { SharedModule } from 'src/app/shared/shared.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    SupportHomePageRoutingModule,
+    SupportConfigPageRoutingModule,
     SharedModule
   ],
-  declarations: [SupportHomePage]
+  declarations: [SupportConfigPage]
 })
-export class SupportHomePageModule {}
+export class SupportConfigPageModule {}

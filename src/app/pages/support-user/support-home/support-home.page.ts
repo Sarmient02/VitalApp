@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { User } from 'src/app/services/user/user';
+import { UserService } from 'src/app/services/user/user.service';
+
 
 @Component({
   selector: 'app-support-home',

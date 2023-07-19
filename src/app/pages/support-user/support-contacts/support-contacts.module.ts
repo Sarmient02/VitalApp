@@ -8,12 +8,15 @@ import { SupportContactsPageRoutingModule } from './support-contacts-routing.mod
 
 import { SupportContactsPage } from './support-contacts.page';
 
+import { SharedModule } from 'src/app/shared/shared.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    SupportContactsPageRoutingModule
+    SupportContactsPageRoutingModule,
+    SharedModule
   ],
   declarations: [SupportContactsPage]
 })

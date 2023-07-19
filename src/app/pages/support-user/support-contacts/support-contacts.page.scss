@@ -1,0 +1,24 @@
+ion-header {
+    box-shadow: none;
+}
+
+.btn {
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 25px;
+    max-width: 65%;
+    margin-top: 5%;
+    height: 12vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-transform: none;
+    text-size-adjust: 80%;
+    --border-radius: 25px;
+    width: 90%;
+    background-color: var(--ion-color-primary);
+}
+
+.inter {
+    font-weight: bolder;
+}

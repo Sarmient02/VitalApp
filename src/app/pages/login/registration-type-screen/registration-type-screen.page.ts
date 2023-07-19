@@ -52,7 +52,7 @@ export class RegistrationTypeScreenPage implements OnInit {
   clickedContactType(): void{
     this.mainButtonColor = "medium";
     this.contactButtonColor = "primary";
-    this.user.userType = "contact";
+    this.user.userType = "support";
     this.hasClickedType = true;
   }
 
@@ -61,11 +61,12 @@ export class RegistrationTypeScreenPage implements OnInit {
       //console.log("going to main page")
       //console.log(this.userService.getUsers());
       this.router.navigate(["main-tabs/home"],
-      {queryParams: {id: this.newUser.id}})
-    } else if (this.user.userType == "contact") {
+      {queryParams: {id: this.newUser.id}});
+    } else if (this.user.userType == "support") {
       //console.log("going to contact page")
+      this.router.navigate(["support-tabs/home"]);
     } else {
-      //console.log("error: wrong user type")
+      console.log("error: wrong user type")
     }
   }
 

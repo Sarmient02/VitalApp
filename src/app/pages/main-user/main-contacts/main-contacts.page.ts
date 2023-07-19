@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { ContactsService } from 'src/app/services/contacts.service';
 import { Contacto } from 'src/app/services/contacto';
 import { Contacts } from '@capacitor-community/contacts'
+import { User } from 'src/app/services/user/user';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-main-contacts',
@@ -17,15 +19,19 @@ export class MainContactsPage implements OnInit {
     phone: ''
   };
 
+  activeUser!: User;
+
   contacts: Contacto[] = [];
 
   constructor(
     private router: Router,
-    private contactsService: ContactsService
+    private contactsService: ContactsService,
+    private userService: UserService
     ) { }
 
   ngOnInit() {
     this.contacts = this.contactsService.getContacts();
+    this.activeUser = this.userService.getActiveUser();
 
     this.contactsService.contactosChanged.subscribe((contactos) => {
       this.contacts = contactos;
@@ -51,11 +57,18 @@ export class MainContactsPage implements OnInit {
         console.log("name: ", this.contact.contact?.name.display);
         console.log("phone: ", this.contact.contact?.phones[0]?.number);
 
-        this.router.navigate(
-        ['main-tabs/contacts/add'],
-        { queryParams: {name: this.contactItems.name, phone: this.contactItems.phone}
-      }
-        )
+
+        if (this.activeUser.userType == "main"){
+          this.router.navigate(
+            ['main-tabs/contacts/add'],
+            { queryParams: {name: this.contactItems.name, phone: this.contactItems.phone}}
+          )
+        } else {
+          this.router.navigate(
+            ['support-tabs/contacts/add'],
+            { queryParams: {name: this.contactItems.name, phone: this.contactItems.phone}}
+          )
+        }
       }
     } catch(e) {
       console.log(e);
